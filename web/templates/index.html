@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hello world!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="container mx-auto px-4">
+        <div class="h-56 grid grid-cols-2 gap-4 content-center">
+            <p class="py-2 pl-3 pr-4 text-gray-900">Hello,</p>
+            <button hx-post="/world" hx-swap="innerHTML"
+                class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">
+                .....?
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

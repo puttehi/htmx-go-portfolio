@@ -19,3 +19,9 @@ clean:
 
 test:
 	go test -v ./...
+
+setup:
+	go mod download -x
+
+dev: setup
+	air
