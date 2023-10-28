@@ -11,6 +11,10 @@ import (
 const webTemplatesRoot = "web/templates"
 const port = 3000
 
+type Navbar struct {
+	NextNavbarAction string
+}
+
 func main() {
 	r := gin.Default()
 
@@ -21,7 +25,15 @@ func main() {
 	r.LoadHTMLGlob(fmt.Sprintf("%s/%s/*.htm*", path, webTemplatesRoot))
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
+		c.HTML(http.StatusOK, "index.html", Navbar{NextNavbarAction: "show"})
+	})
+
+	r.GET("/navbar/:navbarAction", func(c *gin.Context) {
+		nextNavbarAction := "show"
+		if c.Param("navbarAction") == "show" {
+			nextNavbarAction = "hide"
+		}
+		c.HTML(http.StatusOK, "navbar.htmx", Navbar{NextNavbarAction: nextNavbarAction})
 	})
 
 	r.POST("/world", func(c *gin.Context) {
