@@ -1,0 +1,22 @@
+{{ range $index, $item := . }}
+{{ if ne $item.Company "" }}
+{{ if ne $index 0 }}
+---
+{{ end }}
+<div class="flex space-x-2">
+    <h4 class="text-gray-100 text-2xl mb-2 mt-2">🏢</h4>
+    <h3 class="text-gray-100 text-3xl mb-2 mt-2 bold">{{$item.Company}}</h3>
+</div>
+{{ end }}
+<div class="flex space-x-2">
+    <h4 class="text-gray-100 text-2xl mb-2 mt-2">🧑‍💻 {{$item.RoleTitle}}</h4>
+</div>
+<div class="flex space-x-2">
+    <h4 class="text-gray-100 text-2xl mb-2 mt-2">📅</h4>
+    <h5 class="text-gray-100 text-xl mb-2 mt-2 italic">{{$item.Date}}</h5>
+</div>
+{{ range $detailsIndex, $details := .Details }}
+<h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
+<p class="mb-2">{{ $details.Text }}</p>
+{{ end }}
+{{ end }}
