@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type WorkExperienceItemDetails struct {
+type ItemDetails struct {
 	Header string
 	Text   string
 }
@@ -16,13 +16,21 @@ type WorkExperienceItemDetails struct {
 type WorkExperienceItem struct {
 	RoleTitle string
 	Company   string
-	Date      string // YYYY-MM-DD - YYYY-MM-DD (~n years)
-	Details   []WorkExperienceItemDetails
+	Date      string
+	Details   []ItemDetails
+}
+
+type PortfolioItem struct {
+	Name       string
+	SourceURL  string
+	SourceText string
+	Details    []ItemDetails
 }
 
 type PageData struct {
 	NextNavbarAction    string
 	WorkExperienceItems []WorkExperienceItem
+	PortfolioItems      []PortfolioItem
 }
 
 const webTemplatesRoot = "web/templates"
@@ -33,7 +41,7 @@ var workExperienceItems = []WorkExperienceItem{
 		RoleTitle: "DevOps Engineer",
 		Company:   "Critical Force",
 		Date:      "02/2022 - ... (current)",
-		Details: []WorkExperienceItemDetails{
+		Details: []ItemDetails{
 			{
 				Header: `Migrating an "on-prem" datacenter to Google Cloud`,
 				Text:   "Cloud architecture, networking, tunnels, migrations, ...",
@@ -60,7 +68,7 @@ var workExperienceItems = []WorkExperienceItem{
 		RoleTitle: "Junior DevOps Engineer",
 		Company:   "", // Critical Force, template won't print empties
 		Date:      "01/2022 - 02/2023 (~14 months)",
-		Details: []WorkExperienceItemDetails{
+		Details: []ItemDetails{
 			{
 				Header: "Broadening expertise to other infrastructure",
 				Text:   "Amazon Web Services, game backends, game servers, Linux servers, internal tools and services, ...",
@@ -87,7 +95,7 @@ var workExperienceItems = []WorkExperienceItem{
 		RoleTitle: "TechOps Intern",
 		Company:   "", // Critical Force, template won't print empties
 		Date:      "06/2021 - 12/2021 (~6 months)",
-		Details: []WorkExperienceItemDetails{
+		Details: []ItemDetails{
 			{
 				Header: "Google Kubernetes Engine (GKE) migrations",
 				Text:   "Migrating unknown complexity towards known simplicity of dedicated servers, monitoring/alerting, ...",
@@ -110,7 +118,7 @@ var workExperienceItems = []WorkExperienceItem{
 		RoleTitle: "Cashier",
 		Company:   "Neste Sotkamo",
 		Date:      "09/2013 - 08/2019 (~6 years)",
-		Details: []WorkExperienceItemDetails{
+		Details: []ItemDetails{
 			{
 				Header: "Customer service & experience",
 				Text:   "Face-to-face, by phone and by email. Only happy customers!",
@@ -132,6 +140,54 @@ var workExperienceItems = []WorkExperienceItem{
 	},
 }
 
+var portfolioItems = []PortfolioItem{
+	{
+		Name:       "Project 1",
+		SourceURL:  "https://www.github.com/",
+		SourceText: "group-name/repository-name (GitHub)",
+		Details: []ItemDetails{
+			{
+				Header: "Header 1",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+			{
+				Header: "Header 2",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+			{
+				Header: "Header 3",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+			{
+				Header: "Header 4",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+		},
+	},
+	{
+		Name:       "Project 2",
+		SourceURL:  "https://www.gitlab.com/",
+		SourceText: "group-name/repository-name (GitLab)",
+		Details: []ItemDetails{
+			{
+				Header: "Header 1",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+			{
+				Header: "Header 2",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+			{
+				Header: "Header 3",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+			{
+				Header: "Header 4",
+				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+			},
+		},
+	}}
+
 func main() {
 	r := gin.Default()
 
@@ -144,6 +200,7 @@ func main() {
 	pageData := PageData{
 		NextNavbarAction:    "show",
 		WorkExperienceItems: workExperienceItems,
+		PortfolioItems:      portfolioItems,
 	}
 
 	r.GET("/", func(c *gin.Context) {
