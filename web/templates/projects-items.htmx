@@ -6,22 +6,38 @@
     <h3 class="text-gray-100 text-3xl mb-2 mt-2">{{$item.Name}}</h3>
 </div>
 <div class="flex space-x-2">
-    <h5 class="text-gray-100 text-xl mb-2 mt-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-        </svg>
-    </h5>
-    <h6 class="text-gray-100 text-md mb-2 mt-2">
-        <a class="no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
-            href="{{$item.SourceURL}}">
-            {{$item.SourceText}}
-        </a>
-    </h6>
+    <h4 class="text-gray-100 text-2xl mb-2 mt-2">{{$item.Platform}}</h3>
 </div>
-{{ range $detailsIndex, $details := .Details }}
-<h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
-<p class="mb-2">{{ $details.Text }}</p>
-{{ end }}
+<div class="md:flex md:space-x-2">
+    <div>
+        <div class="flex space-x-2">
+            <h5 class="text-gray-100 text-xl mb-2 mt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="{{ $item.SVGData.ViewBox }}" {{ if
+                    $item.SVGData.Stroke }}stroke="{{$item.SVGData.Stroke}}" {{ end }}{{ if $item.SVGData.StrokeWidth
+                    }}stroke-width="{{$item.SVGData.StrokeWidth}}" {{ end }}>
+                    <path fill="{{ $item.SVGData.PathFill }}" color="{{ $item.SVGData.PathColor }}"
+                        d="{{$item.SVGData.PathData}}" />
+                </svg>
+            </h5>
+            <h6 class="text-gray-100 text-md mb-2 mt-2">
+                <a class="no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
+                    href="{{$item.SourceURL}}">
+                    {{$item.SourceText}}
+                </a>
+            </h6>
+        </div>
+        {{ range $detailsIndex, $details := .Details }}
+        <h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
+        <p class="mb-2">{{ $details.Text }}</p>
+        <ul class="list-disc list-inside">
+            {{ range $listItemIndex, $listItem := .ListItems }}
+            <li>{{ $listItem }}</li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+    <div class="mt-4 mb-4 md:mt-0 md:mb-0">
+        <video class="" src="{{$item.Video}}" muted="" autoplay="" loop=""></video>
+    </div>
+</div>
 {{ end }}

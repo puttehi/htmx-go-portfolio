@@ -18,5 +18,10 @@
 {{ range $detailsIndex, $details := .Details }}
 <h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
 <p class="mb-2">{{ $details.Text }}</p>
+<ul class="list-disc list-inside">
+    {{ range $listItemIndex, $listItem := .ListItems }}
+    <li>{{ $listItem }}</li>
+    {{ end }}
+</ul>
 {{ end }}
 {{ end }}
