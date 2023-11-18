@@ -29,7 +29,10 @@ var portfolioItems = []PortfolioItem{
 		Details: []ItemDetails{
 			{
 				Header: "General",
-				Text:   "Prototype developed solo in 3 months for a game engineering course.",
+				Text:   "Mobile game development in the form of an \"infinite runner\" -style minigolf game.",
+				ListItems: []string{
+					"Prototype developed solo in about 3 months",
+				},
 			},
 			{
 				Header: "Acquired expertise",
