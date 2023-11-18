@@ -15,9 +15,10 @@
             <li class="text-gray-100 text-md mb-2 mt-2">
                 <div class="flex space-x-2">
                     <div class="text-gray-100 text-xl mb-2 mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="{{ $linkItem.SVGData.ViewBox }}" {{
-                            if $linkItem.SVGData.Stroke }}stroke="{{$linkItem.SVGData.Stroke}}" {{ end }}{{ if
-                            $linkItem.SVGData.StrokeWidth }}stroke-width="{{$linkItem.SVGData.StrokeWidth}}" {{ end }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                            viewBox="{{ $linkItem.SVGData.ViewBox }}" {{ if $linkItem.SVGData.Stroke
+                            }}stroke="{{$linkItem.SVGData.Stroke}}" {{ end }}{{ if $linkItem.SVGData.StrokeWidth
+                            }}stroke-width="{{$linkItem.SVGData.StrokeWidth}}" {{ end }}>
                             <path fill="{{ $linkItem.SVGData.PathFill }}" color="{{ $linkItem.SVGData.PathColor }}"
                                 d="{{$linkItem.SVGData.PathData}}" />
                         </svg>
@@ -40,8 +41,10 @@
         </ul>
         {{ end }}
     </div>
+    {{ if $item.Video }}
     <div class="mt-4 mb-4 md:mt-0 md:mb-0">
-        <video class="" src="{{$item.Video}}" muted="" autoplay="" loop=""></video>
+        <video class="" src="{{ $item.Video }}" muted="" autoplay="" loop=""></video>
     </div>
+    {{ end }}
 </div>
 {{ end }}
