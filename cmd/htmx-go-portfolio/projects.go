@@ -59,6 +59,58 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "Python application template with full CI/CD",
+		Platform: "GitHub",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/slacktube",
+				Text:    "puttehi/slacktube (GitHub)",
+				SVGData: SVGCode,
+			},
+			{
+				URL:     "https://slacktube.readthedocs.io/en/latest/",
+				Text:    "Documentation (readthedocs.io)",
+				SVGData: SVGText,
+			},
+			{
+				URL:     "https://github.com/fedejaure/cookiecutter-modern-pypackage/issues/409",
+				Text:    "fedejaure/cookiecutter-modern-pypackage improvements (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "Initially a side-project to dump YouTube links from a #jukebox Slack channel to a YouTube playlist for easy listening. Turns out automation was much more interesting.",
+				ListItems: []string{
+					"GitHub automation",
+					"Modern Python package automation",
+				},
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"GitHub Actions (CI/CD)",
+					"Dependabot (GitHub)",
+					"Sphinx documentation generation",
+					"Read The Docs automation",
+					"Python Package Index (pip) automation",
+					"Modernizing old Python project templates",
+					"Git hooks (pre-commit)",
+					"Python environments (Poetry)",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"GitHub Actions",
+					"Python",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Simplechat",
 		Platform: "Windows",
 		Links: []LinkData{
@@ -99,7 +151,90 @@ var portfolioItems = []PortfolioItem{
 				},
 			},
 		},
-	}, {
+	},
+	{
+		Name:     "React applications",
+		Platform: "Android, iOS, Web",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/mobile-exercises",
+				Text:    "puttehi/mobile-exercises (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "https://puttehi.github.io/mp4/react.mp4",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "Modern mobile and web app development in the form of over a dozen small apps. Developed for a summertime course.",
+				ListItems: []string{
+					"Apps developed solo in 2-3 months",
+					"Over a dozen different apps",
+				},
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"React",
+					"React Native",
+					"Expo",
+					"Ads",
+					"Native toasts",
+					"PWAs",
+					"Cross-app traversal",
+					"Google products (Maps, Places, etc.)",
+					"Web APIs, fetching and parsing)",
+					"NPM",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Javascript",
+				},
+			},
+		},
+	},
+	{
+		Name:     "Neuroevolution inside a game clone",
+		Platform: "Web",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/dj-machine-learning",
+				Text:    "puttehi/dj-machine-learning (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "https://puttehi.github.io/mp4/machine_learning.mp4",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "Playing around with AI by cloning a classic mobile game and making it play itself better than any human ever could.",
+				ListItems: []string{
+					"Prototype developed in about a month",
+					"Trained model surpasses scores of 100 000+",
+				},
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"Neuroevolution and machine learning basics",
+					"AI modeling",
+					"Reward functions",
+					"Tensorflow.js",
+					"Real-time web development",
+					"p5 framework",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Javascript",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Routa Engine Tutorial",
 		Platform: "Cross-platform",
 		Links: []LinkData{
@@ -142,45 +277,6 @@ var portfolioItems = []PortfolioItem{
 				ListItems: []string{
 					"C++",
 					"Markdown",
-				},
-			},
-		},
-	},
-	{
-		Name:     "Neuroevolution inside a game clone",
-		Platform: "Web",
-		Links: []LinkData{
-			{
-				URL:     "https://github.com/puttehi/dj-machine-learning",
-				Text:    "puttehi/dj-machine-learning (GitHub)",
-				SVGData: SVGCode,
-			},
-		},
-		Video: "https://puttehi.github.io/mp4/machine_learning.mp4",
-		Details: []ItemDetails{
-			{
-				Header: "Overview",
-				Text:   "Playing around with AI by cloning a classic mobile game and making it play itself better than any human ever could.",
-				ListItems: []string{
-					"Prototype developed in about a month",
-					"Trained model surpasses scores of 100 000+",
-				},
-			},
-			{
-				Header: "Acquired expertise",
-				ListItems: []string{
-					"Neuroevolution and machine learning basics",
-					"AI modeling",
-					"Reward functions",
-					"Tensorflow.js",
-					"Real-time web development",
-					"p5 framework",
-				},
-			},
-			{
-				Header: "Languages",
-				ListItems: []string{
-					"Javascript",
 				},
 			},
 		},
