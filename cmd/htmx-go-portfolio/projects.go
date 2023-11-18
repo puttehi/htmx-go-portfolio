@@ -235,6 +235,48 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "Bitburner scripts",
+		Platform: "Windows/Linux (Steam)",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/bitburner-scripts/tree/BN1",
+				Text:    "puttehi/bitburner-scripts BitNode 1 (GitHub)",
+				SVGData: SVGCode,
+			},
+			{
+				URL:     "https://store.steampowered.com/app/1812820/Bitburner/",
+				Text:    "Bitburner in Steam (Steam Store)",
+				SVGData: SVGText,
+			},
+		},
+		Video: "",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "Bitburner is an \"idle game\" played through programming. The goal of the game is to create the best botnet you can.",
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"JSDoc",
+					"Typescript",
+					"Distributed (local) systems i.e. a botnet",
+					"Migrating from Javascript to TypeScript",
+					"Code editor integration in-game through game API (VSCode)",
+					"Reverse-engineering a custom botnet UI",
+					"Optimization",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Javascript",
+					"Typescript",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Routa Engine Tutorial",
 		Platform: "Cross-platform",
 		Links: []LinkData{
