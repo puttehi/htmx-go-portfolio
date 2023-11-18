@@ -277,6 +277,45 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "Discord lunch bot",
+		Platform: "Linux",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/lounaat-info",
+				Text:    "puttehi/lounaat-info (GitHub)",
+				SVGData: SVGCode,
+			},
+			{
+				URL:     "https://www.lounaat.info/",
+				Text:    "Lunch menus (lounaat.info)",
+				SVGData: SVGText,
+			},
+		},
+		Video: "",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "A Discord bot built for my friend groups private Discord server. Announces local lunch menus daily.",
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"Python dependency management (Poetry)",
+					"Discord API",
+					"External APIs (Lounaat.info)",
+					"Web scraping (BeautifulSoup)",
+					"Parsing HTML trees",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Python",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Bitburner scripts",
 		Platform: "Windows/Linux (Steam)",
 		Links: []LinkData{
