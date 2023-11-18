@@ -235,6 +235,48 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "Easily extendable Discord bot",
+		Platform: "Linux, Windows",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/discord-spaghetti-bot/tree/feat-mongo",
+				Text:    "puttehi/discord-spaghetti-bot (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "A Discord bot built for my friend groups private Discord server. Initial idea was to support the release of New World with Discord-integration.",
+				ListItems: []string{
+					"Easily extendible command palette with a permission system",
+					"New World API integrations",
+					"Web scraping with parameter-based navigation and automatic screenshot threads",
+				},
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"Discord API",
+					"Chat-bot development (commands, user groups, admin tools)",
+					"External APIs (New World World Status)",
+					"Web scraping (Puppeteer)",
+					"Screenshot generation",
+					"Local caching",
+					"Online caching and data storage (MongoDB)",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Javascript",
+					"Bash",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Bitburner scripts",
 		Platform: "Windows/Linux (Steam)",
 		Links: []LinkData{
