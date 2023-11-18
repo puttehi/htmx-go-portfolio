@@ -1,23 +1,31 @@
 package main
 
+type LinkData struct {
+	URL     string
+	Text    string
+	SVGData SVGData
+}
+
 type PortfolioItem struct {
-	Name       string
-	Platform   string
-	SVGData    SVGData
-	SourceURL  string
-	SourceText string
-	Video      string
-	Details    []ItemDetails
+	Name     string
+	Platform string
+	Links    []LinkData
+	Video    string
+	Details  []ItemDetails
 }
 
 var portfolioItems = []PortfolioItem{
 	{
-		Name:       "Infinigolf (Unity)",
-		Platform:   "Android",
-		SVGData:    SVGItchIo,
-		SourceURL:  "https://puttehi.itch.io/infinigolf",
-		SourceText: "Infinigolf (itch.io)",
-		Video:      "https://puttehi.github.io/mp4/infinigolf.mp4",
+		Name:     "Infinigolf (Unity)",
+		Platform: "Android",
+		Links: []LinkData{
+			{
+				URL:     "https://puttehi.itch.io/infinigolf",
+				Text:    "Infinigolf (itch.io)",
+				SVGData: SVGItchIo,
+			},
+		},
+		Video: "https://puttehi.github.io/mp4/infinigolf.mp4",
 		Details: []ItemDetails{
 			{
 				Header: "General",
@@ -48,28 +56,49 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
-		Name:       "Project 2",
-		Platform:   "Platform",
-		SVGData:    SVGCode,
-		SourceURL:  "https://www.gitlab.com/",
-		SourceText: "group-name/repository-name (GitLab)",
-		Video:      "",
+		Name:     "Routa Engine Tutorial",
+		Platform: "Cross-platform",
+		Links: []LinkData{
+			{
+				URL:     "https://gitlab.dclabra.fi/wiki/s/HJrXEPW58",
+				Text:    "Written tutorial: Part 1 (CodiMD @KAMK DCLabra)",
+				SVGData: SVGText,
+			},
+			{
+				URL:     "https://gitlab.dclabra.fi/wiki/s/rkHV83ccI",
+				Text:    "Written tutorial: Part 1 (CodiMD @KAMK DCLabra)",
+				SVGData: SVGText,
+			},
+		},
+		Video: "https://puttehi.github.io/mp4/routa_tutorials.mp4",
 		Details: []ItemDetails{
 			{
-				Header: "Header 1",
-				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+				Header: "Overview",
+				Text:   "Routa Engine is a game engine developed by students, for students in-house @ KAMK. No one knew how to use it though.",
+				ListItems: []string{
+					"3-man team",
+					"Developed a single platformer game",
+					"Wrote a tutorial on Routa basics for first-year students",
+				},
 			},
 			{
-				Header: "Header 2",
-				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"More advanced C++",
+					"C++ build systems",
+					"Entity Component Systems (ECS)",
+					"Technical writing",
+					"Learning a new, big codebase",
+					"Fixing a lot of low-level game engine bugs",
+					"Tilemap creation (Tiled editor)",
+				},
 			},
 			{
-				Header: "Header 3",
-				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
-			},
-			{
-				Header: "Header 4",
-				Text:   "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+				Header: "Languages",
+				ListItems: []string{
+					"C++",
+					"Markdown",
+				},
 			},
 		},
 	},

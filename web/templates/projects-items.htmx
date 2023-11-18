@@ -10,22 +10,26 @@
 </div>
 <div class="md:flex md:space-x-2">
     <div>
-        <div class="flex space-x-2">
-            <h5 class="text-gray-100 text-xl mb-2 mt-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="{{ $item.SVGData.ViewBox }}" {{ if
-                    $item.SVGData.Stroke }}stroke="{{$item.SVGData.Stroke}}" {{ end }}{{ if $item.SVGData.StrokeWidth
-                    }}stroke-width="{{$item.SVGData.StrokeWidth}}" {{ end }}>
-                    <path fill="{{ $item.SVGData.PathFill }}" color="{{ $item.SVGData.PathColor }}"
-                        d="{{$item.SVGData.PathData}}" />
-                </svg>
-            </h5>
-            <h6 class="text-gray-100 text-md mb-2 mt-2">
-                <a class="no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
-                    href="{{$item.SourceURL}}">
-                    {{$item.SourceText}}
-                </a>
-            </h6>
-        </div>
+        <ul>
+            {{ range $linkItemIndex, $linkItem := .Links }}
+            <li class="text-gray-100 text-md mb-2 mt-2">
+                <div class="flex space-x-2">
+                    <div class="text-gray-100 text-xl mb-2 mt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="{{ $linkItem.SVGData.ViewBox }}" {{
+                            if $linkItem.SVGData.Stroke }}stroke="{{$linkItem.SVGData.Stroke}}" {{ end }}{{ if
+                            $linkItem.SVGData.StrokeWidth }}stroke-width="{{$linkItem.SVGData.StrokeWidth}}" {{ end }}>
+                            <path fill="{{ $linkItem.SVGData.PathFill }}" color="{{ $linkItem.SVGData.PathColor }}"
+                                d="{{$linkItem.SVGData.PathData}}" />
+                        </svg>
+                    </div>
+                    <a class="mt-2 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
+                        href="{{$linkItem.URL}}">
+                        {{$linkItem.Text}}
+                    </a>
+                </div>
+            </li>
+            {{ end }}
+        </ul>
         {{ range $detailsIndex, $details := .Details }}
         <h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
         <p class="mb-2">{{ $details.Text }}</p>
