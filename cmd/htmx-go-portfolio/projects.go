@@ -28,7 +28,7 @@ var portfolioItems = []PortfolioItem{
 		Video: "https://puttehi.github.io/mp4/infinigolf.mp4",
 		Details: []ItemDetails{
 			{
-				Header: "General",
+				Header: "Overview",
 				Text:   "Mobile game development in the form of an \"infinite runner\" -style minigolf game.",
 				ListItems: []string{
 					"Prototype developed solo in about 3 months",
@@ -59,6 +59,47 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "Simplechat",
+		Platform: "Windows",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/qt-chat",
+				Text:    "puttehi/qt-chat (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "https://puttehi.github.io/mp4/chat.mp4",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "Modern Windows application development in the form of a server/client chat application.",
+				ListItems: []string{
+					"Prototype developed solo in 1-2 months",
+					"Chat commands (/me, /slap, /time)",
+					"Server timestamps with optional client timestamps",
+					"Persistent chat history with optional saving on clients",
+				},
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"Qt framework (C++)",
+					"Websockets (QtWebsocket)",
+					"qmake and GNU Make",
+					"Messaging protocols",
+					"Sharing server/client code",
+					"UI/UX design",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"C++",
+					"GNU Make",
+				},
+			},
+		},
+	}, {
 		Name:     "Routa Engine Tutorial",
 		Platform: "Cross-platform",
 		Links: []LinkData{
