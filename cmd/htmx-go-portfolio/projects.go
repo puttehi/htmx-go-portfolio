@@ -59,6 +59,48 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "www.puttehi.eu infrastructure and service automation",
+		Platform: "Linux",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/puttehi-cloud",
+				Text:    "puttehi/puttehi-cloud (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "My personal cloud server configuration.",
+				ListItems: []string{
+					"Development services behind authentication",
+					"Single command deployments",
+				},
+			},
+			{
+				Header: "Acquired (rather, used) expertise",
+				ListItems: []string{
+					"Infrastructure automation (Terraform)",
+					"Service automation (Ansible)",
+					"Reverse proxy (nginx)",
+					"Cloud services (Linode)",
+					"Domain ownership (GoDaddy)",
+					"Remote workstations (automated personalization)",
+					"Authentication layers (Vouch)",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Terraform (HCL)",
+					"Ansible (YAML)",
+					"Nginx configuration",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Python application template with full CI/CD",
 		Platform: "GitHub",
 		Links: []LinkData{
