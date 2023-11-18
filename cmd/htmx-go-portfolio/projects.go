@@ -102,4 +102,43 @@ var portfolioItems = []PortfolioItem{
 			},
 		},
 	},
+	{
+		Name:     "Neuroevolution inside a game clone",
+		Platform: "Web",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/dj-machine-learning",
+				Text:    "puttehi/dj-machine-learning (GitHub)",
+				SVGData: SVGCode,
+			},
+		},
+		Video: "https://puttehi.github.io/mp4/machine_learning.mp4",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "Playing around with AI by cloning a classic mobile game and making it play itself better than any human ever could.",
+				ListItems: []string{
+					"Prototype developed in about a month",
+					"Trained model surpasses scores of 100 000+",
+				},
+			},
+			{
+				Header: "Acquired expertise",
+				ListItems: []string{
+					"Neuroevolution and machine learning basics",
+					"AI modeling",
+					"Reward functions",
+					"Tensorflow.js",
+					"Real-time web development",
+					"p5 framework",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Javascript",
+				},
+			},
+		},
+	},
 }
