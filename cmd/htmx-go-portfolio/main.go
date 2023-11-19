@@ -17,7 +17,7 @@ type ItemDetails struct {
 type PageData struct {
 	NextNavbarAction    string
 	WorkExperienceItems []WorkExperienceItem
-	PortfolioItems      []PortfolioItem
+	ProjectItems      []ProjectItem
 }
 
 const webTemplatesRoot = "web/templates"
@@ -35,7 +35,7 @@ func main() {
 	pageData := PageData{
 		NextNavbarAction:    "show",
 		WorkExperienceItems: workExperienceItems,
-		PortfolioItems:      portfolioItems,
+		ProjectItems:      projectItems,
 	}
 
 	r.GET("/", func(c *gin.Context) {

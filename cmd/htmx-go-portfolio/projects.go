@@ -6,7 +6,7 @@ type LinkData struct {
 	SVGData SVGData
 }
 
-type PortfolioItem struct {
+type ProjectItem struct {
 	Name     string
 	Platform string
 	Links    []LinkData
@@ -14,7 +14,7 @@ type PortfolioItem struct {
 	Details  []ItemDetails
 }
 
-var portfolioItems = []PortfolioItem{
+var projectItems = []ProjectItem{
 	{
 		Name:     "Infinigolf (Unity)",
 		Platform: "Android",
