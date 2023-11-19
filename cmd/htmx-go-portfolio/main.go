@@ -23,6 +23,7 @@ type PageData struct {
 
 const webTemplatesRoot = "web/templates"
 const webVendorRoot = "web/vendor"
+const webFaviconPath = "web/favicon.ico"
 const port = 3000
 
 func main() {
@@ -39,6 +40,7 @@ func main() {
 
 	// Serve static content
 	r.Static("/vendor", fmt.Sprintf("%s/%s", path, webVendorRoot))
+	r.StaticFile("favicon.ico", fmt.Sprintf("%s/%s", path, webFaviconPath))
 
 	pageData := PageData{
 		PersonName:          "Petteri Zitting",
