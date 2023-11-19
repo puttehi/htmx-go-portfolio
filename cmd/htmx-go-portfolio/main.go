@@ -15,9 +15,10 @@ type ItemDetails struct {
 }
 
 type PageData struct {
+	PersonName          string
 	NextNavbarAction    string
 	WorkExperienceItems []WorkExperienceItem
-	ProjectItems      []ProjectItem
+	ProjectItems        []ProjectItem
 }
 
 const webTemplatesRoot = "web/templates"
@@ -33,9 +34,10 @@ func main() {
 	r.LoadHTMLGlob(fmt.Sprintf("%s/%s/*.htm*", path, webTemplatesRoot))
 
 	pageData := PageData{
+        PersonName: "Petteri Zitting",
 		NextNavbarAction:    "show",
 		WorkExperienceItems: workExperienceItems,
-		ProjectItems:      projectItems,
+		ProjectItems:        projectItems,
 	}
 
 	r.GET("/", func(c *gin.Context) {
