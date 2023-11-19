@@ -22,19 +22,26 @@ type PageData struct {
 }
 
 const webTemplatesRoot = "web/templates"
+const webVendorRoot = "web/vendor"
 const port = 3000
 
 func main() {
 	r := gin.Default()
 
+	// Root directory is current working directory
 	path, err := os.Getwd()
 	if err != nil {
 		panic(err)
 	}
+
+	// Load templates
 	r.LoadHTMLGlob(fmt.Sprintf("%s/%s/*.htm*", path, webTemplatesRoot))
 
+	// Serve static content
+	r.Static("/vendor", fmt.Sprintf("%s/%s", path, webVendorRoot))
+
 	pageData := PageData{
-        PersonName: "Petteri Zitting",
+		PersonName:          "Petteri Zitting",
 		NextNavbarAction:    "show",
 		WorkExperienceItems: workExperienceItems,
 		ProjectItems:        projectItems,
