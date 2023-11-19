@@ -72,3 +72,13 @@ docker-build:
 docker-run:
 	docker run -p $(EXPOSED_AT):3000 $(DOCKER_REGISTRY)/$(DOCKER_IMAGE)
 
+##########
+# Podman #
+##########
+
+podman-docker-sync:
+	docker save $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):latest | podman load
+
+podman-tarball:
+	mkdir -p $$HOME/tmp/htmx-go-portfolio && podman save -o $$HOME/tmp/htmx-go-portfolio/latest.tar --format oci-archive $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):latest
+
