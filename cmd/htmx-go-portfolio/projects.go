@@ -451,7 +451,7 @@ var projectItems = []ProjectItem{
 			},
 			{
 				URL:     "https://gitlab.dclabra.fi/wiki/s/rkHV83ccI",
-				Text:    "Written tutorial: Part 1 (CodiMD @KAMK DCLabra)",
+				Text:    "Written tutorial: Part 2 (CodiMD @KAMK DCLabra)",
 				SVGData: SVGText,
 			},
 		},
