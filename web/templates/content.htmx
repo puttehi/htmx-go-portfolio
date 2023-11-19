@@ -1,9 +1,11 @@
-<section id="top" class="scroll-mt-4">
-    <h1 class="text-gray-100 text-5xl mb-4 mt-4"># Petteri Zitting</h1>
+<section id="top" class="scroll-mt-4 my-2 py-2">
+    <h1 class="text-gray-100 text-5xl mb-4"># Petteri Zitting</h1>
     <section id="bio" class="scroll-mt-4">
         <h2 class="text-gray-100 text-4xl mb-4 mt-6">## About me</h2>
         <p>A smart and detail-oriented DevOps Engineer from Kainuu, Finland who enjoys programming. Experienced
-            in Cloud Infrastructure and modern DevOps solutions. Always looking for new things to research or learn!
+            in Cloud Infrastructure and modern DevOps solutions. Worked in the service industry before game engineering
+            studies after which moved to the games and tech industry. Have been hacking away at computers and
+            electronics since the early 2000s. Always looking for new things to research or learn!
             Avid gamer.</p>
     </section>
     <section id="skills" class="scroll-mt-4">
@@ -28,12 +30,16 @@
         </ul>
     </section>
 </section>
-<section id="projects" class="scroll-mt-4">
-    <h2 class="text-gray-100 text-4xl mb-4 mt-6">## Projects</h2>
+<section id="projects" class="scroll-mt-4 my-2 py-2">
+    <h2 class="text-gray-100 text-4xl mb-4 mt-4">## Projects</h2>
     <p>Check out these past projects!</p>
-    {{ template "projects-items.htmx" .ProjectItems }}
+    <div class="divide-y divide-dashed">
+        {{ template "projects-items.htmx" .ProjectItems }}
+    </div>
 </section>
-<section id="work-experience" class="scroll-mt-4">
-    <h2 class="text-gray-100 text-4xl mb-4 mt-6">## Work experience</h2>
-    {{ template "work-experience-items.htmx" .WorkExperienceItems }}
+<section id="work-experience" class="scroll-mt-4 my-2 py-2">
+    <h2 class="text-gray-100 text-4xl mb-4 mt-4">## Work experience</h2>
+    <div class="divide-y divide-dashed">
+        {{ template "work-experience-items.htmx" .WorkExperienceItems }}
+    </div>
 </section>

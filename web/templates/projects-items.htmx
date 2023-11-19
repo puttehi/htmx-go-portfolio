@@ -1,50 +1,49 @@
 {{ range $index, $item := . }}
-{{ if ne $index 0 }}
----
-{{ end }}
-<div class="flex space-x-2">
-    <h3 class="text-gray-100 text-3xl mb-2 mt-2">{{$item.Name}}</h3>
-</div>
-<div class="flex space-x-2">
-    <h4 class="text-gray-100 text-2xl mb-2 mt-2">{{$item.Platform}}</h3>
-</div>
-<div class="md:flex md:space-x-2">
-    <div>
-        <ul>
-            {{ range $linkItemIndex, $linkItem := .Links }}
-            <li class="text-gray-100 text-md mb-2 mt-2">
-                <div class="flex space-x-2">
-                    <div class="text-gray-100 text-xl mb-2 mt-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
-                            viewBox="{{ $linkItem.SVGData.ViewBox }}" {{ if $linkItem.SVGData.Stroke
-                            }}stroke="{{$linkItem.SVGData.Stroke}}" {{ end }}{{ if $linkItem.SVGData.StrokeWidth
-                            }}stroke-width="{{$linkItem.SVGData.StrokeWidth}}" {{ end }}>
-                            <path fill="{{ $linkItem.SVGData.PathFill }}" color="{{ $linkItem.SVGData.PathColor }}"
-                                d="{{$linkItem.SVGData.PathData}}" />
-                        </svg>
+<div class="py-2 my-2">
+    <div class="flex space-x-2">
+        <h3 class="text-gray-100 text-3xl mb-2 mt-2">{{$item.Name}}</h3>
+    </div>
+    <div class="flex space-x-2">
+        <h4 class="text-gray-100 text-2xl mb-2 mt-2">{{$item.Platform}}</h3>
+    </div>
+    <div class="md:flex md:space-x-2">
+        <div>
+            <ul>
+                {{ range $linkItemIndex, $linkItem := .Links }}
+                <li class="text-gray-100 text-md mb-2 mt-2">
+                    <div class="flex space-x-2">
+                        <div class="text-gray-100 text-xl mb-2 mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                                viewBox="{{ $linkItem.SVGData.ViewBox }}" {{ if $linkItem.SVGData.Stroke
+                                }}stroke="{{$linkItem.SVGData.Stroke}}" {{ end }}{{ if $linkItem.SVGData.StrokeWidth
+                                }}stroke-width="{{$linkItem.SVGData.StrokeWidth}}" {{ end }}>
+                                <path fill="{{ $linkItem.SVGData.PathFill }}" color="{{ $linkItem.SVGData.PathColor }}"
+                                    d="{{$linkItem.SVGData.PathData}}" />
+                            </svg>
+                        </div>
+                        <a class="mt-2 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
+                            href="{{$linkItem.URL}}">
+                            {{$linkItem.Text}}
+                        </a>
                     </div>
-                    <a class="mt-2 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
-                        href="{{$linkItem.URL}}">
-                        {{$linkItem.Text}}
-                    </a>
-                </div>
-            </li>
+                </li>
+                {{ end }}
+            </ul>
+            {{ range $detailsIndex, $details := .Details }}
+            <h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
+            <p class="mb-2">{{ $details.Text }}</p>
+            <ul class="list-disc list-inside">
+                {{ range $listItemIndex, $listItem := .ListItems }}
+                <li>{{ $listItem }}</li>
+                {{ end }}
+            </ul>
             {{ end }}
-        </ul>
-        {{ range $detailsIndex, $details := .Details }}
-        <h5 class="text-gray-100 text-xl mt-2">{{ $details.Header }}</h5>
-        <p class="mb-2">{{ $details.Text }}</p>
-        <ul class="list-disc list-inside">
-            {{ range $listItemIndex, $listItem := .ListItems }}
-            <li>{{ $listItem }}</li>
-            {{ end }}
-        </ul>
+        </div>
+        {{ if $item.Video }}
+        <div class="mt-4 mb-4 md:mt-0 md:mb-0">
+            <video class="" src="{{ $item.Video }}" muted="" autoplay="" loop=""></video>
+        </div>
         {{ end }}
     </div>
-    {{ if $item.Video }}
-    <div class="mt-4 mb-4 md:mt-0 md:mb-0">
-        <video class="" src="{{ $item.Video }}" muted="" autoplay="" loop=""></video>
-    </div>
-    {{ end }}
 </div>
 {{ end }}
