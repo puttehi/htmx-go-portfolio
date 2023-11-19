@@ -7,26 +7,47 @@
             studies after which moved to the games and tech industry. Have been hacking away at computers and
             electronics since the early 2000s. Always looking for new things to research or learn!
             Avid gamer.</p>
+        <h4 class="text-gray-100 text-2xl mb-2 mt-2">Me elsewhere</h4>
+        <ul class="list-disc list-inside">
+            <li>
+                <a class="mt-2 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
+                    href="https://www.linkedin.com/in/petteri-zitting-354b31299/">
+                    LinkedIn
+                </a>
+            </li>
+            <li>
+                <a class="mt-2 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
+                    href="https://www.github.com/puttehi">
+                    GitHub
+                </a>
+            </li>
+            <li>
+                <a class="mt-2 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300"
+                    href="https://puttehi.itch.io/">
+                    itch.io
+                </a>
+            </li>
+        </ul>
     </section>
     <section id="skills" class="scroll-mt-24 md:scroll-mt-16">
         <h2 class="text-gray-100 text-4xl mb-4 mt-6">Skills</h2>
         <h4 class="text-gray-100 text-2xl mb-2 mt-2">Cloud infrastructure and cloud solutions</h4>
-        <ul class="list-disc list-inside ml-4">
+        <ul class="list-disc list-inside">
             <li> Google Cloud Platform (GCP) </li>
             <li> Amazon Web Services (AWS) </li>
         </ul>
         <h4 class="text-gray-100 text-2xl mb-2 mt-2">Build and process automation (CI/CD)</h4>
         </h4>
-        <ul class="list-disc list-inside ml-4">
+        <ul class="list-disc list-inside">
             <li> GitLab CI </li>
             <li> Jenkins </li>
             <li> GitHub Actions </li>
         </ul>
         <h4 class="text-gray-100 text-2xl mb-2 mt-2">Full-stack development with a focus on the backend</h4>
-        <ul class="list-disc list-inside ml-4">
+        <ul class="list-disc list-inside">
             <li> Typescript/Javascript servers and simple frontends </li>
             <li> Golang backends and tooling </li>
-            <li> Python backends and tooling</li>
+            <li> Python backends and tooling </li>
         </ul>
     </section>
 </section>
