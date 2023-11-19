@@ -25,7 +25,7 @@ var projectItems = []ProjectItem{
 				SVGData: SVGItchIo,
 			},
 		},
-		Video: "https://puttehi.github.io/mp4/infinigolf.mp4",
+		Video: "assets/mp4/infinigolf.mp4",
 		Details: []ItemDetails{
 			{
 				Header: "Overview",
@@ -203,7 +203,7 @@ var projectItems = []ProjectItem{
 				SVGData: SVGCode,
 			},
 		},
-		Video: "https://puttehi.github.io/mp4/chat.mp4",
+		Video: "assets/mp4/chat.mp4",
 		Details: []ItemDetails{
 			{
 				Header: "Overview",
@@ -245,7 +245,7 @@ var projectItems = []ProjectItem{
 				SVGData: SVGCode,
 			},
 		},
-		Video: "https://puttehi.github.io/mp4/react.mp4",
+		Video: "assets/mp4/react.mp4",
 		Details: []ItemDetails{
 			{
 				Header: "Overview",
@@ -288,7 +288,7 @@ var projectItems = []ProjectItem{
 				SVGData: SVGCode,
 			},
 		},
-		Video: "https://puttehi.github.io/mp4/machine_learning.mp4",
+		Video: "assets/mp4/machine_learning.mp4",
 		Details: []ItemDetails{
 			{
 				Header: "Overview",
@@ -455,7 +455,7 @@ var projectItems = []ProjectItem{
 				SVGData: SVGText,
 			},
 		},
-		Video: "https://puttehi.github.io/mp4/routa_tutorials.mp4",
+		Video: "assets/mp4/routa_tutorials.mp4",
 		Details: []ItemDetails{
 			{
 				Header: "Overview",
