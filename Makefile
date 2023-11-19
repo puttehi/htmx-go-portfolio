@@ -1,7 +1,7 @@
 SHELL:=/bin/bash
 
 # Prevent pushing publicly by accident
-DOCKER_REGISTRY:=no-registry
+DOCKER_REGISTRY:=no-registry.local
 DOCKER_IMAGE:=htmx-go-portfolio
 EXPOSED_AT:=8080
 
