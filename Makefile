@@ -9,6 +9,7 @@ EXPOSED_AT:=8080
 TAILWINDCSS_PLATFORM:=linux
 TAILWINDCSS_ARCH:=x64
 TAILWINDCSS_VERSION:=v3.3.5
+TAILWINDCSS:=./tools/tailwindcss
 
 .PHONY:$(MAKECMDGOALS)
 
@@ -45,13 +46,17 @@ dev: setup
 ############
 
 tailwind-cli:
-	@command -v ./tools/tailwindcss \
-		|| echo "./tools/tailwindcss missing. Installing..." \
+	@command -v $(TAILWINDCSS) \
+		|| echo "$(TAILWINDCSS) missing. Installing..." \
 		&& curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/$(TAILWINDCSS_VERSION)/tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& chmod +x tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
-		&& mv tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) ./tools/tailwindcss \
+		&& mv tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) $(TAILWINDCSS) \
 		&& echo "Installed, showing help..." \
-		&& ./tools/tailwindcss --help
+		&& $(TAILWINDCSS) --help
+
+tailwind-build:
+	@echo "Building CSS..."
+	$(TAILWINDCSS) -o ./web/css/styles.css
 
 ##########
 # Docker #
