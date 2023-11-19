@@ -153,6 +153,47 @@ var portfolioItems = []PortfolioItem{
 		},
 	},
 	{
+		Name:     "Rocket League replay uploader",
+		Platform: "Linux, Windows",
+		Links: []LinkData{
+			{
+				URL:     "https://github.com/puttehi/bcsync",
+				Text:    "puttehi/bcsync (GitHub)",
+				SVGData: SVGCode,
+			},
+			{
+				URL:     "https://ballchasing.com/",
+				Text:    "Replay database (ballchasing.com)",
+				SVGData: SVGText,
+			},
+			{
+				URL:     "https://store.steampowered.com/app/252950/Rocket_League/",
+				Text:    "Rocket League in Steam (Steam Store)",
+				SVGData: SVGText,
+			},
+		},
+		Video: "",
+		Details: []ItemDetails{
+			{
+				Header: "Overview",
+				Text:   "When you cannot get Bakkesmod to work on Linux and do it for you, you do it yourself.",
+				ListItems: []string{
+					"CLI tool",
+					"Keep track of your statistics and share your game with your friends",
+					"Just needs the (free) ballchasing.com API token",
+				},
+			},
+			{
+				Header: "Languages",
+				ListItems: []string{
+					"Python",
+					"Bash",
+					"GNU Make",
+				},
+			},
+		},
+	},
+	{
 		Name:     "Simplechat",
 		Platform: "Windows",
 		Links: []LinkData{
