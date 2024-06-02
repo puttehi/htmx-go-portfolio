@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"log/slog"
+	"strconv"
+)
+
 type SVGData struct {
 	ViewBox     string
 	Stroke      string
@@ -8,6 +14,40 @@ type SVGData struct {
 	PathColor   string
 	PathFill    string
 	PathData    string
+}
+
+// UnmarshalJSON unmarshals a JSON representation of SVGData from an alias (SVGCode/SVGItchIo/...) to its actual Go struct type
+func (svgData *SVGData) UnmarshalJSON(data []byte) error {
+	// Ignore null, like in the main JSON package.
+	str := string(data)
+	if str == "null" || str == `""` {
+		return nil
+	}
+
+	svg := SVGData{}
+
+	// Take first string between escaped quotes
+	str, err := strconv.Unquote(str)
+	if err != nil {
+		return err
+	}
+
+	switch str {
+	case "SVGCode":
+		svg = SVGCode
+	case "SVGItchIo":
+		svg = SVGItchIo
+	case "SVGText":
+		svg = SVGText
+	default:
+		err = fmt.Errorf("Unknown SVG enum alias %s", str)
+	}
+
+	*svgData = svg
+
+	slog.Default().Info("Unmarshaled SVG", "svg", svg, "err", err, "data", data)
+
+	return err
 }
 
 var (

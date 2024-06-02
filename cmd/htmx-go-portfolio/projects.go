@@ -1,19 +1,42 @@
 package main
 
+import (
+	"encoding/json"
+	"os"
+)
+
 type LinkData struct {
-	URL     string
-	Text    string
-	SVGData SVGData
+	URL     string  `json:"url"`
+	Text    string  `json:"text"`
+	SVGData SVGData `json:"svg"` // Custom unmarshal from alias -> hard-coded data
 }
 
 type ProjectItem struct {
-	Name     string
-	Platform string
-	Links    []LinkData
-	Video    string
-	Details  []ItemDetails
+	Name     string        `json:"name"`
+	Platform string        `json:"platform"`
+	Links    []LinkData    `json:"links"`
+	Video    string        `json:"video"`
+	Details  []ItemDetails `json:"details"`
 }
 
+// ReadProjectItems reads the content from a JSON file
+func ReadProjectItems(configFilePath string) ([]ProjectItem, error) {
+	projectItems := []ProjectItem{}
+
+	b, err := os.ReadFile(configFilePath)
+	if err != nil {
+		return projectItems, err
+	}
+
+	err = json.Unmarshal(b, &projectItems)
+	if err != nil {
+		return projectItems, err
+	}
+
+	return projectItems, nil
+}
+
+/*
 var projectItems = []ProjectItem{
 	{
 		Name:     "Infinigolf (Unity)",
@@ -487,4 +510,4 @@ var projectItems = []ProjectItem{
 			},
 		},
 	},
-}
+} */

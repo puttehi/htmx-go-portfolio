@@ -11,8 +11,8 @@ import (
 
 type ItemDetails struct {
 	Header    string   `json:"header"`
-	Text      string   `json:"text,omitempty"`      // (optional)
-	ListItems []string `json:"listItems,omitempty"` // (optional)
+	Text      string   `json:"text,omitempty"`       // (optional)
+	ListItems []string `json:"list_items,omitempty"` // (optional)
 }
 
 type PageData struct {
@@ -53,10 +53,15 @@ func main() {
 		os.Exit(1)
 	}
 
+	projectItems, err := ReadProjectItems(fmt.Sprintf("%s/%s", path, "configs/project-items.json"))
+	if err != nil {
+		slog.Default().Error("Could not read project items config", "err", err)
+		os.Exit(1)
+	}
+
 	pageData := PageData{
-		PersonName:       "Petteri Zitting",
-		NextNavbarAction: "show",
-		// WorkExperienceItems: workExperienceItems,
+		PersonName:          "Petteri Zitting",
+		NextNavbarAction:    "show",
 		WorkExperienceItems: workExperienceItems,
 		ProjectItems:        projectItems,
 	}

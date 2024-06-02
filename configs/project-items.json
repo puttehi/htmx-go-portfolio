@@ -1,0 +1,474 @@
+[
+    {
+        "name": "Infinigolf (Unity)",
+        "platform": "Android",
+        "links": [
+            {
+                "url": "https://puttehi.itch.io/infinigolf",
+                "text": "Infinigolf (itch.io)",
+                "svg": "SVGItchIo"
+            }
+        ],
+        "video": "assets/mp4/infinigolf.mp4",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Mobile game development in the form of an \"infinite runner\" -style minigolf game.",
+                "list_items": [
+                    "Prototype developed solo in about 3 months"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "Algorithms and data structures (procedural generation)",
+                    "Advanced cameras and directing (Cinemachine)",
+                    "Data tweening (DOTween)",
+                    "3D modeling (DOTween)",
+                    "Node-based shader progamming (Shader Graph)",
+                    "Object pooling (LeanPool)",
+                    "Query building (LINQ)",
+                    "Market research (Mobile)",
+                    "Publishing (Store requirements)"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "C# (Unity)",
+                    "GLSL",
+                    "(Shader Graph)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "www.puttehi.eu infrastructure and service automation",
+        "platform": "Linux",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/puttehi-cloud",
+                "text": "puttehi/puttehi-cloud (GitHub)",
+                "svg": "SVGCode"
+            }
+        ],
+        "video": "",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "My personal cloud server configuration.",
+                "list_items": [
+                    "Development services behind authentication",
+                    "Single command deployments"
+                ]
+            },
+            {
+                "header": "Acquired (rather, used) expertise",
+                "list_items": [
+                    "Infrastructure automation (Terraform)",
+                    "Service automation (Ansible)",
+                    "Reverse proxy (nginx)",
+                    "Cloud services (Linode)",
+                    "Domain ownership (GoDaddy)",
+                    "Remote workstations (automated personalization)",
+                    "Authentication layers (Vouch)"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Terraform (HCL)",
+                    "Ansible (YAML)",
+                    "Nginx configuration"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Python application template with full CI/CD",
+        "platform": "GitHub",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/slacktube",
+                "text": "puttehi/slacktube (GitHub)",
+                "svg": "SVGCode"
+            },
+            {
+                "url": "https://slacktube.readthedocs.io/en/latest/",
+                "text": "Documentation (readthedocs.io)",
+                "svg": "SVGText"
+            },
+            {
+                "url": "https://github.com/fedejaure/cookiecutter-modern-pypackage/issues/409",
+                "text": "fedejaure/cookiecutter-modern-pypackage improvements (GitHub)",
+                "svg": "SVGCode"
+            }
+        ],
+        "video": "",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Initially a side-project to dump YouTube links from a #jukebox Slack channel to a YouTube playlist for easy listening. Turns out automation was much more interesting.",
+                "list_items": [
+                    "GitHub automation",
+                    "Modern Python package automation"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "GitHub Actions (CI/CD)",
+                    "Dependabot (GitHub)",
+                    "Sphinx documentation generation",
+                    "Read The Docs automation",
+                    "Python Package Index (pip) automation",
+                    "Modernizing old Python project templates",
+                    "Git hooks (pre-commit)",
+                    "Python environments (Poetry)"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "GitHub Actions",
+                    "Python"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Rocket League replay uploader",
+        "platform": "Linux, Windows",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/bcsync",
+                "text": "puttehi/bcsync (GitHub)",
+                "svg": "SVGCode"
+            },
+            {
+                "url": "https://ballchasing.com/",
+                "text": "Replay database (ballchasing.com)",
+                "svg": "SVGText"
+            },
+            {
+                "url": "https://store.steampowered.com/app/252950/Rocket_League/",
+                "text": "Rocket League in Steam (Steam Store)",
+                "svg": "SVGText"
+            }
+        ],
+        "video": "",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "When you cannot get Bakkesmod to work on Linux and do it for you, you do it yourself.",
+                "list_items": [
+                    "CLI tool",
+                    "Keep track of your statistics and share your game with your friends",
+                    "Just needs the (free) ballchasing.com API token"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Python",
+                    "Bash",
+                    "GNU Make"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Simplechat",
+        "platform": "Windows",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/qt-chat",
+                "text": "puttehi/qt-chat (GitHub)",
+                "svg": "SVGCode"
+            }
+        ],
+        "video": "assets/mp4/chat.mp4",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Modern Windows application development in the form of a server/client chat application.",
+                "list_items": [
+                    "Prototype developed solo in 1-2 months",
+                    "Chat commands (/me, /slap, /time)",
+                    "Server timestamps with optional client timestamps",
+                    "Persistent chat history with optional saving on clients"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "Qt framework (C++)",
+                    "Websockets (QtWebsocket)",
+                    "qmake and GNU Make",
+                    "Messaging protocols",
+                    "Sharing server/client code",
+                    "UI/UX design"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "C++",
+                    "GNU Make"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "React applications",
+        "platform": "Android, iOS, Web",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/mobile-exercises",
+                "text": "puttehi/mobile-exercises (GitHub)",
+                "svg": "SVGCode"
+            }
+        ],
+        "video": "assets/mp4/react.mp4",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Modern mobile and web app development in the form of over a dozen small apps. Developed for a summertime course.",
+                "list_items": [
+                    "Apps developed solo in 2-3 months",
+                    "Over a dozen different apps"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "React",
+                    "React Native",
+                    "Expo",
+                    "Ads",
+                    "Native toasts",
+                    "PWAs",
+                    "Cross-app traversal",
+                    "Google products (Maps, Places, etc.)",
+                    "Web APIs, fetching and parsing)",
+                    "NPM"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Javascript"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Neuroevolution inside a game clone",
+        "platform": "Web",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/dj-machine-learning",
+                "text": "puttehi/dj-machine-learning (GitHub)",
+                "svg": "SVGCode"
+            }
+        ],
+        "video": "assets/mp4/machine_learning.mp4",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Playing around with AI by cloning a classic mobile game and making it play itself better than any human ever could.",
+                "list_items": [
+                    "Prototype developed in about a month",
+                    "Trained model surpasses scores of 100 000+"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "Neuroevolution and machine learning basics",
+                    "AI modeling",
+                    "Reward functions",
+                    "Tensorflow.js",
+                    "Real-time web development",
+                    "p5 framework"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Javascript"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Easily extendable Discord bot",
+        "platform": "Linux, Windows",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/discord-spaghetti-bot/tree/feat-mongo",
+                "text": "puttehi/discord-spaghetti-bot (GitHub)",
+                "svg": "SVGCode"
+            }
+        ],
+        "video": "",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "A Discord bot built for my friend groups private Discord server. Initial idea was to support the release of New World with Discord-integration.",
+                "list_items": [
+                    "Easily extendible command palette with a permission system",
+                    "New World API integrations",
+                    "Web scraping with parameter-based navigation and automatic screenshot threads"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "Discord API",
+                    "Chat-bot development (commands, user groups, admin tools)",
+                    "External APIs (New World World Status)",
+                    "Web scraping (Puppeteer)",
+                    "Screenshot generation",
+                    "Local caching",
+                    "Online caching and data storage (MongoDB)"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Javascript",
+                    "Bash"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Discord lunch bot",
+        "platform": "Linux",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/lounaat-info",
+                "text": "puttehi/lounaat-info (GitHub)",
+                "svg": "SVGCode"
+            },
+            {
+                "url": "https://www.lounaat.info/",
+                "text": "Lunch menus (lounaat.info)",
+                "svg": "SVGText"
+            }
+        ],
+        "video": "",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "A Discord bot built for my friend groups private Discord server. Announces local lunch menus daily."
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "Python dependency management (Poetry)",
+                    "Discord API",
+                    "External APIs (Lounaat.info)",
+                    "Web scraping (BeautifulSoup)",
+                    "Parsing HTML trees"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Python"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Bitburner scripts",
+        "platform": "Windows/Linux (Steam)",
+        "links": [
+            {
+                "url": "https://github.com/puttehi/bitburner-scripts/tree/BN1",
+                "text": "puttehi/bitburner-scripts BitNode 1 (GitHub)",
+                "svg": "SVGCode"
+            },
+            {
+                "url": "https://store.steampowered.com/app/1812820/Bitburner/",
+                "text": "Bitburner in Steam (Steam Store)",
+                "svg": "SVGText"
+            }
+        ],
+        "video": "",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Bitburner is an \"idle game\" played through programming. The goal of the game is to create the best botnet you can."
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "JSDoc",
+                    "Typescript",
+                    "Distributed (local) systems i.e. a botnet",
+                    "Migrating from Javascript to TypeScript",
+                    "Code editor integration in-game through game API (VSCode)",
+                    "Reverse-engineering a custom botnet UI",
+                    "Optimization"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "Javascript",
+                    "Typescript"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Routa Engine Tutorial",
+        "platform": "Cross-platform",
+        "links": [
+            {
+                "url": "https://gitlab.dclabra.fi/wiki/s/HJrXEPW58",
+                "text": "Written tutorial: Part 1 (CodiMD @KAMK DCLabra)",
+                "svg": "SVGText"
+            },
+            {
+                "url": "https://gitlab.dclabra.fi/wiki/s/rkHV83ccI",
+                "text": "Written tutorial: Part 2 (CodiMD @KAMK DCLabra)",
+                "svg": "SVGText"
+            }
+        ],
+        "video": "assets/mp4/routa_tutorials.mp4",
+        "details": [
+            {
+                "header": "Overview",
+                "text": "Routa Engine is a game engine developed by students, for students in-house @ KAMK. No one knew how to use it though.",
+                "list_items": [
+                    "3-man team",
+                    "Developed a single platformer game",
+                    "Wrote a tutorial on Routa basics for first-year students"
+                ]
+            },
+            {
+                "header": "Acquired expertise",
+                "list_items": [
+                    "More advanced C++",
+                    "C++ build systems",
+                    "Entity Component Systems (ECS)",
+                    "Technical writing",
+                    "Learning a new, big codebase",
+                    "Fixing a lot of low-level game engine bugs",
+                    "Tilemap creation (Tiled editor)"
+                ]
+            },
+            {
+                "header": "Languages",
+                "list_items": [
+                    "C++",
+                    "Markdown"
+                ]
+            }
+        ]
+    }
+]
