@@ -2,7 +2,7 @@
 # Build project #
 #################
 
-FROM golang:1.18 as builder
+FROM golang:1.22 as builder
 
 # We don't care about CGO and are in a Linux environment
 ENV CGO_ENABLED=0
