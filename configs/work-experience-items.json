@@ -1,0 +1,102 @@
+[
+    {
+        "roleTitle": "DevOps Engineer",
+        "company": "Critical Force",
+        "date": "02/2022 - ... (current)",
+        "details": [
+            {
+                "header": "Migrating an \"on-prem\" datacenter to Google Cloud",
+                "text": "Cloud architecture, networking, tunnels, migrations, ..."
+            },
+            {
+                "header": "Evaluating and designing infrastructure for a monitoring platform",
+                "text": "Different types of collector agents, metric backends, log backends, backups, cloud storage options, response times, historical data, ..."
+            },
+            {
+                "header": "Designing and building a GitOps platform over its skeleton (GKE)",
+                "text": "GKE Autopilot, Shared VPC, private clusters. Kubernetes administration networking, volumes, ingress-nginx, external-dns, cert-manager, kustomize overlays, namespacing, security, migrations, ..."
+            },
+            {
+                "header": "Maintaining company infrastructure",
+                "text": "Tooling and service upgrades, maintaining and improving internal tooling and services, modularizing, improving git hygiene, ..."
+            },
+            {
+                "header": "Helping others grow while doing so myself",
+                "text": "Assisting others while learning from them myself"
+            }
+        ]
+    },
+    {
+        "roleTitle": "Junior DevOps Engineer",
+        "company": "",
+        "date": "01/2022 - 02/2023 (~14 months)",
+        "details": [
+            {
+                "header": "Broadening expertise to other infrastructure",
+                "text": "Amazon Web Services, game backends, game servers, Linux servers, internal tools and services, ..."
+            },
+            {
+                "header": "Designing and building analytics platforms",
+                "text": "Automation-first, git-driven, reusable modular platforms to support many products"
+            },
+            {
+                "header": "Improving the DevOps culture",
+                "text": "Automating and documenting manual processes, empowering developers, embracing git, improving Infrastructure as Code, ..."
+            },
+            {
+                "header": "Maintaining and optimizing the larger tech stack as a whole",
+                "text": "Terraform/Kubernets/Python/Go upgrades, maintaining and improving internal services, right-sizing workloads, improving traffic balancing, migrations to modern patterns, ..."
+            },
+            {
+                "header": "Helping others grow while doing so myself",
+                "text": "Learning never stops; Guiding the local university towards modern tech solutions, onboarding new joins to tech and company practices, ..."
+            }
+        ]
+    },
+    {
+        "roleTitle": "TechOps Intern",
+        "company": "",
+        "date": "06/2021 - 12/2021 (~6 months)",
+        "details": [
+            {
+                "header": "Google Kubernetes Engine (GKE) migrations",
+                "text": "Migrating unknown complexity towards known simplicity of dedicated servers, monitoring/alerting, ..."
+            },
+            {
+                "header": "Learning the analytics backend",
+                "text": "Building data and CI pipelines for stakeholders, maintaining internal and external services, patching data, ..."
+            },
+            {
+                "header": "Maintaining the tech stack",
+                "text": "Terraform upgrades, Kubernetes upgrades, Python upgrades, ..."
+            },
+            {
+                "header": "Growing to an engineer from an engineering student",
+                "text": "Studying, researching, asking lots and lots of questions to absorb knowledge from our awesome seniors."
+            }
+        ]
+    },
+    {
+        "roleTitle": "Cashier",
+        "company": "Neste Sotkamo",
+        "date": "09/2013 - 08/2019 (~6 years)",
+        "details": [
+            {
+                "header": "Customer service & experience",
+                "text": "Face-to-face, by phone and by email. Only happy customers!"
+            },
+            {
+                "header": "Social media marketing",
+                "text": "Building the company Facebook account. Designing and implementing marketing campaigns to Facebook. Improving social media and web presence."
+            },
+            {
+                "header": "Website maintenance",
+                "text": "Keeping the company website running steady and its information up to date."
+            },
+            {
+                "header": "Troubleshooting and maintenance",
+                "text": "Ranging from connectivity issues to malfunctioning burger toasters."
+            }
+        ]
+    }
+]
