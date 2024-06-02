@@ -75,6 +75,7 @@ func main() {
 
 	if err != nil {
 		slog.Default().Error("Initial configuration read failed", "err", err)
+		os.Exit(1)
 	}
 
 	pageData := PageData{
@@ -89,11 +90,16 @@ func main() {
 	})
 
 	r.GET("/navbar/:navbarAction", func(c *gin.Context) {
-		pageData.NextNavbarAction = "show"
-		if c.Param("navbarAction") == "show" {
-			pageData.NextNavbarAction = "hide"
+		wanted := c.Param("navbarAction")
+		var next string
+		if wanted == "show" {
+			next = "hide"
+		} else {
+			next = "show"
 		}
-		c.HTML(http.StatusOK, "navbar.htmx", pageData)
+		sessionPageData := pageData
+		sessionPageData.NextNavbarAction = next
+		c.HTML(http.StatusOK, "navbar.htmx", sessionPageData)
 	})
 
 	fmt.Printf("\n*****\nStarting on http://localhost:%d\n*****\n\n", port)
