@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+	"reflect"
 
 	"github.com/gin-gonic/gin"
 )
@@ -47,13 +48,15 @@ func main() {
 	r.Static("/assets", fmt.Sprintf("%s/%s", path, webAssetsRoot))
 	r.StaticFile("favicon.ico", fmt.Sprintf("%s/%s", path, webFaviconPath))
 
-	workExperienceItems, err := ReadWorkExperienceItems(fmt.Sprintf("%s/%s", path, "configs/work-experience-items.json"))
+	workExperienceItems := []WorkExperienceItem{}
+	err = ReadContentFromJSON[[]WorkExperienceItem](fmt.Sprintf("%s/%s", path, "configs/work-experience-items.json"), &workExperienceItems)
 	if err != nil {
 		slog.Default().Error("Could not read work experience items config", "err", err)
 		os.Exit(1)
 	}
 
-	projectItems, err := ReadProjectItems(fmt.Sprintf("%s/%s", path, "configs/project-items.json"))
+	projectItems := []ProjectItem{}
+	err = ReadContentFromJSON[[]ProjectItem](fmt.Sprintf("%s/%s", path, "configs/project-items.json"), &projectItems)
 	if err != nil {
 		slog.Default().Error("Could not read project items config", "err", err)
 		os.Exit(1)

@@ -50,6 +50,8 @@ func (svgData *SVGData) UnmarshalJSON(data []byte) error {
 	return err
 }
 
+// Hard-coded defaults SVGs
+// TODO: JSON configurable (give as JSON)
 var (
 	SVGCode = SVGData{
 		ViewBox:     "0 0 24 24",
