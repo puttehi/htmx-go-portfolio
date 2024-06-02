@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"net/http"
 	"os"
 
@@ -9,9 +10,9 @@ import (
 )
 
 type ItemDetails struct {
-	Header    string
-	Text      string   // (optional)
-	ListItems []string // (optional)
+	Header    string   `json:"header"`
+	Text      string   `json:"text,omitempty"`      // (optional)
+	ListItems []string `json:"listItems,omitempty"` // (optional)
 }
 
 type PageData struct {
@@ -46,9 +47,16 @@ func main() {
 	r.Static("/assets", fmt.Sprintf("%s/%s", path, webAssetsRoot))
 	r.StaticFile("favicon.ico", fmt.Sprintf("%s/%s", path, webFaviconPath))
 
+	workExperienceItems, err := ReadWorkExperienceItems(fmt.Sprintf("%s/%s", path, "configs/work-experience-items.json"))
+	if err != nil {
+		slog.Default().Error("Could not read work experience items config", "err", err)
+		os.Exit(1)
+	}
+
 	pageData := PageData{
-		PersonName:          "Petteri Zitting",
-		NextNavbarAction:    "show",
+		PersonName:       "Petteri Zitting",
+		NextNavbarAction: "show",
+		// WorkExperienceItems: workExperienceItems,
 		WorkExperienceItems: workExperienceItems,
 		ProjectItems:        projectItems,
 	}

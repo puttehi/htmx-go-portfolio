@@ -1,12 +1,35 @@
 package main
 
+import (
+	"encoding/json"
+	"os"
+)
+
 type WorkExperienceItem struct {
-	RoleTitle string
-	Company   string
-	Date      string
-	Details   []ItemDetails
+	RoleTitle string        `json:"roleTitle"`
+	Company   string        `json:"company"`
+	Date      string        `json:"date"`
+	Details   []ItemDetails `json:"details"`
 }
 
+// ReadWorkExperienceItems reads the content from a JSON file
+func ReadWorkExperienceItems(configFilePath string) ([]WorkExperienceItem, error) {
+	workExperienceItems := []WorkExperienceItem{}
+
+	b, err := os.ReadFile(configFilePath)
+	if err != nil {
+		return workExperienceItems, err
+	}
+
+	err = json.Unmarshal(b, &workExperienceItems)
+	if err != nil {
+		return workExperienceItems, err
+	}
+
+	return workExperienceItems, nil
+}
+
+/*
 var workExperienceItems = []WorkExperienceItem{
 	{
 		RoleTitle: "DevOps Engineer",
@@ -109,4 +132,4 @@ var workExperienceItems = []WorkExperienceItem{
 			},
 		},
 	},
-}
+} */
