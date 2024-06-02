@@ -2,8 +2,47 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
+	"time"
 )
+
+// https://stackoverflow.com/a/48051946
+type Duration struct {
+	time.Duration
+}
+
+func (d Duration) MarshalJSON() ([]byte, error) {
+	return json.Marshal(d.String())
+}
+
+// UnmarshalJSON unmarshals a JSON representation of SVGData from an alias (SVGCode/SVGItchIo/...) to its actual Go struct type
+func (d *Duration) UnmarshalJSON(data []byte) error {
+	var v interface{}
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch value := v.(type) {
+	case float64:
+		d.Duration = time.Duration(value)
+		return nil
+	case string:
+		var err error
+		d.Duration, err = time.ParseDuration(value)
+		if err != nil {
+			return fmt.Errorf("Could not parse duration string %s: %s", value, err)
+		}
+		return nil
+	default:
+		return fmt.Errorf("Invalid duration %s. Want number (time.Duration value) or string (duration string like 10s)", value)
+	}
+}
+
+type Config struct {
+	PersonName            string   `json:"name"`
+	NextNavbarAction      string   `json:"next_navbar_action"`
+	ConfigRefreshInterval Duration `json:"config_refresh_interval"`
+}
 
 type WorkExperienceItem struct {
 	RoleTitle string        `json:"roleTitle"`

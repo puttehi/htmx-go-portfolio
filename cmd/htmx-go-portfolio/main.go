@@ -1,11 +1,11 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log/slog"
 	"net/http"
 	"os"
-	"reflect"
 
 	"github.com/gin-gonic/gin"
 )
@@ -30,6 +30,29 @@ const webCSSRoot = "web/css"
 const webFaviconPath = "web/favicon.ico"
 const port = 3000
 
+func ReadConfigsAndContent(configDirectory string) (Config, []WorkExperienceItem, []ProjectItem, error) {
+	var errs []error
+	config := Config{}
+	err := ReadContentFromJSON(fmt.Sprintf("%s/%s", configDirectory, "configs/site-config.json"), &config)
+	if err != nil {
+		errs = append(errs, fmt.Errorf("Could not read site config: %s", err))
+	}
+
+	workExperienceItems := []WorkExperienceItem{}
+	err = ReadContentFromJSON(fmt.Sprintf("%s/%s", configDirectory, "configs/work-experience-items.json"), &workExperienceItems)
+	if err != nil {
+		errs = append(errs, fmt.Errorf("Could not read work experience items config: %s", err))
+	}
+
+	projectItems := []ProjectItem{}
+	err = ReadContentFromJSON(fmt.Sprintf("%s/%s", configDirectory, "configs/project-items.json"), &projectItems)
+	if err != nil {
+		errs = append(errs, fmt.Errorf("Could not read project items config: %s", err))
+	}
+
+	return config, workExperienceItems, projectItems, errors.Join(errs...)
+}
+
 func main() {
 	r := gin.Default()
 
@@ -48,23 +71,15 @@ func main() {
 	r.Static("/assets", fmt.Sprintf("%s/%s", path, webAssetsRoot))
 	r.StaticFile("favicon.ico", fmt.Sprintf("%s/%s", path, webFaviconPath))
 
-	workExperienceItems := []WorkExperienceItem{}
-	err = ReadContentFromJSON[[]WorkExperienceItem](fmt.Sprintf("%s/%s", path, "configs/work-experience-items.json"), &workExperienceItems)
-	if err != nil {
-		slog.Default().Error("Could not read work experience items config", "err", err)
-		os.Exit(1)
-	}
+	config, workExperienceItems, projectItems, err := ReadConfigsAndContent(path)
 
-	projectItems := []ProjectItem{}
-	err = ReadContentFromJSON[[]ProjectItem](fmt.Sprintf("%s/%s", path, "configs/project-items.json"), &projectItems)
 	if err != nil {
-		slog.Default().Error("Could not read project items config", "err", err)
-		os.Exit(1)
+		slog.Default().Error("Initial configuration read failed", "err", err)
 	}
 
 	pageData := PageData{
-		PersonName:          "Petteri Zitting",
-		NextNavbarAction:    "show",
+		PersonName:          config.PersonName,
+		NextNavbarAction:    config.NextNavbarAction,
 		WorkExperienceItems: workExperienceItems,
 		ProjectItems:        projectItems,
 	}

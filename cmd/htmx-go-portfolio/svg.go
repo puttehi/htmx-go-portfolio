@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log/slog"
 	"strconv"
 )
 
@@ -44,8 +43,6 @@ func (svgData *SVGData) UnmarshalJSON(data []byte) error {
 	}
 
 	*svgData = svg
-
-	slog.Default().Info("Unmarshaled SVG", "svg", svg, "err", err, "data", data)
 
 	return err
 }
