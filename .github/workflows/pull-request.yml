@@ -1,0 +1,7 @@
+name: Pull request checks
+on:
+  - pull_request
+jobs:
+  test-build-and-package:
+    uses: ./.github/workflows/build.yml
+
