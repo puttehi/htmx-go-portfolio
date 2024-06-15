@@ -5,7 +5,7 @@ on:
     outputs:
       docker-tar-path:
         description: "Path of the tarball in the output artifact"
-        value: ${{ jobs.package-docker.outputs.docker-tar-path }}
+        value: ${{ jobs.package-docker.outputs.docker-tar-file }} # Note: Packaging single file removes nesting directory
       docker-artifact-name:
         description: "Output artifact name that contains the Docker tarball"
         value: ${{ jobs.package-docker.outputs.docker-artifact-name }}
@@ -59,6 +59,7 @@ jobs:
       - name: Tarball
         id: tarball
         env:
+          DOCKER_TAR_FILE: "image.tar"
           DOCKER_TAR_PATH: "/tmp/image.tar"
         run: |
           make docker-save \
@@ -66,6 +67,7 @@ jobs:
             DOCKER_IMAGE="${{ env.DOCKER_IMAGE }}" \
             DOCKER_TAG="${{ env.DOCKER_TAG }}" \
             DOCKER_SAVE_ARGS="--output ${{ env.DOCKER_TAR_PATH }}"
+          echo "docker-tar-file=${{ env.DOCKER_TAR_FILE }}" >> $GITHUB_OUTPUT
           echo "docker-tar-path=${{ env.DOCKER_TAR_PATH }}" >> $GITHUB_OUTPUT
       - name: Upload Docker image artifact
         uses: actions/upload-artifact@v4
