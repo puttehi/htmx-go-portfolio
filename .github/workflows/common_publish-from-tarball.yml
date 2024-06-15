@@ -36,8 +36,8 @@ jobs:
     env:
       EXTRACT_DIR: ./tmp
       # Use GH credentials if not given
-      DOCKER_USER: ${{ secrets.registry-user != "" && secrets.registry-user || github.actor }}
-      DOCKER_PASS: ${{ secrets.registry-password != "" && secrets.registry-password || github.token }}
+      DOCKER_USER: ${{ secrets.registry-user != '' && secrets.registry-user || github.actor }}
+      DOCKER_PASS: ${{ secrets.registry-password != '' && secrets.registry-password || github.token }}
     steps:
       - name: Download Docker image artifact
         uses: actions/download-artifact@v4
