@@ -33,6 +33,8 @@ on:
 jobs:
   publish-docker-package:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     env:
       EXTRACT_DIR: ./tmp
       # Use GH credentials if not given
