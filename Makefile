@@ -9,6 +9,9 @@ DOCKER_BUILD_ARGS:=
 DOCKER_SAVE_ARGS:=
 EXPOSED_AT:=3000
 
+# E.g. -i filepath/of/DOCKER_SAVE_ARGS
+PODMAN_LOAD_ARGS:=
+
 TOOLS_ROOT_DIR:=./tools
 
 # TailwindCSS CLI installation
@@ -89,7 +92,7 @@ docker-save:
 ##########
 
 podman-docker-sync: docker-save
-	podman load
+	podman load $(PODMAN_LOAD_ARGS)
 
 podman-clean:
 	mv $$HOME/tmp/htmx-go-portfolio/ $$HOME/tmp/htmx-go-portfolio.old.d

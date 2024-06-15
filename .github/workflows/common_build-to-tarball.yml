@@ -1,7 +1,23 @@
-name: Build and package the project
-run-name: ${{ github.actor }} is building ref ${{ github.ref_name }}
+name: Build and package the project in a Docker image tarball artifact
 on:
   workflow_call:
+    inputs:
+      container-registry:
+        description: "Container registry for tagging (<container-registry>/<registry-namespace>/<image-name>:<image-tag>)"
+        required: true
+        type: string
+      registry-namespace:
+        description: "Container registry namespace for tagging (<container-registry>/<registry-namespace>/<image-name>:<image-tag>)"
+        required: true
+        type: string
+      image-name:
+        description: "Image name for tagging (<container-registry>/<registry-namespace>/<image-name>:<image-tag>)"
+        required: true
+        type: string
+      image-tag:
+        description: "Image tag (<container-registry>/<registry-namespace>/<image-name>:<image-tag>)"
+        required: true
+        type: string
     outputs:
       docker-tar-path:
         description: "Path of the tarball in the output artifact"
@@ -29,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: unit-test
     env:
-      DOCKER_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
-      DOCKER_IMAGE: "htmx-go-portfolio"
-      DOCKER_TAG: "${{ github.sha }}"
+      DOCKER_REGISTRY: "${{ inputs.container-registry }}/${{ inputs.registry-namespace }}"
+      DOCKER_IMAGE: ${{ inputs.image-name }}
+      DOCKER_TAG: "${{ inputs.image-tag }}"
     outputs:
       docker-tar-path: ${{ steps.tarball.outputs.docker-tar-path }}
       docker-artifact-name: docker-image

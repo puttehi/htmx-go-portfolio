@@ -1,0 +1,13 @@
+name: Pull request checks
+run-name: "${{ github.actor }} is checking their pull request for ${{ github.ref_name }} (commit: ${{ github.sha }})"
+on:
+  - pull_request
+jobs:
+  test-build-and-package:
+    uses: ./.github/workflows/common_build-to-tarball.yml
+    with:
+      container-registry: ghcr.io
+      registry-namespace: ${{ github.repository_owner }}
+      image-name: "htmx-go-portfolio"
+      image-tag: ${{ github.sha }}
+
