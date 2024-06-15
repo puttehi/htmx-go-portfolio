@@ -9,11 +9,13 @@ DOCKER_BUILD_ARGS:=
 DOCKER_SAVE_ARGS:=
 EXPOSED_AT:=3000
 
+TOOLS_ROOT_DIR:=./tools
+
 # TailwindCSS CLI installation
 TAILWINDCSS_PLATFORM:=linux
 TAILWINDCSS_ARCH:=x64
 TAILWINDCSS_VERSION:=v3.3.5
-TAILWINDCSS:=./tools/tailwindcss
+TAILWINDCSS:=$(TOOLS_ROOT_DIR)/tailwindcss
 
 .PHONY:$(MAKECMDGOALS)
 
@@ -49,7 +51,10 @@ dev: setup
 # External #
 ############
 
-tailwind-cli:
+ensure-tools:
+	mkdir -p $(TOOLS_ROOT_DIR)
+
+tailwind-cli: ensure-tools
 	@command -v $(TAILWINDCSS) \
 		|| echo "$(TAILWINDCSS) missing. Installing..." \
 		&& curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/$(TAILWINDCSS_VERSION)/tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
