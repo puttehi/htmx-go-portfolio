@@ -49,6 +49,7 @@ jobs:
       DOCKER_IMAGE: ${{ inputs.image-name }}
       DOCKER_TAG: "${{ inputs.image-tag }}"
     outputs:
+      docker-tar-file: ${{ steps.tarball.outputs.docker-tar-file }}
       docker-tar-path: ${{ steps.tarball.outputs.docker-tar-path }}
       docker-artifact-name: docker-image
     steps:
