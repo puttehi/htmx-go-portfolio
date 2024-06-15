@@ -15,20 +15,24 @@ on:
         required: true
         type: string
       container-registry:
-        description: "Container registry to login and push to (<container-registry>/<registry-namespace>/<image-name>:<image-tag>)"
-        required: true
+        description: "Container registry to login and push to. Leave empty to use GHCR."
+        default: "ghcr.io"
+        required: false
         type: string
       output-tag:
-        description: "What to re-tag the image as and where to push to? E.g. ghcr.io/my-username/my-repo:latest"
+        description: "What to re-tag the image as? E.g. my-username/my-repo:latest"
         required: true
         type: string
-    secrets:
       registry-user:
-        description: "Container registry login username"
-        required: true
+        description: "Container registry login username. Leave empty if publishing to GHCR."
+        default: ${{ github.actor }}
+        required: false
+        type: string
       registry-password:
-        description: "container registry login password"
-        required: true
+        description: "Container registry login password. Leave empty if publishing to GHCR."
+        default: ${{ github.token }}
+        required: false
+        type: string
 jobs:
   publish-docker-package:
     runs-on: ubuntu-latest
@@ -54,7 +58,7 @@ jobs:
           password: ${{ secrets.registry-password }}
       - name: Tag Docker image for pushing
         run: |
-          docker tag ${{ inputs.input-tag }} ${{ inputs.output-tag }}
+          docker tag ${{ inputs.input-tag }} ${{ inputs.container-registry }}/${{ inputs.output-tag }}
       - name: Push Docker image
         run: |
           docker push ${{ inputs.output-tag }}
