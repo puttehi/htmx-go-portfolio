@@ -20,6 +20,7 @@ jobs:
       tar-path-in-artifact: ${{ needs.test-build-and-package.outputs.docker-tar-path }}
       input-tag: ghcr.io/${{ github.repository_owner }}/htmx-go-portfolio:${{ github.sha }}
       container-registry: ghcr.io
+      output-tag: ghcr.io/${{ github.repository_owner }}/htmx-go-portfolio:${{ github.sha }}
+    secrets:
       registry-user: ${{ github.actor }}
       registry-password: ${{ github.token }}
-      output-tag: ghcr.io/${{ github.repository_owner }}/htmx-go-portfolio:${{ github.sha }}
