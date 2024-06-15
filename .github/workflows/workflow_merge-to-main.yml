@@ -1,0 +1,24 @@
+name: Release (publish to GHCR)
+run-name: "${{ github.actor }} is releasing ${{ github.ref_name }} (commit: ${{ github.sha }})"
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  test-build-and-package:
+    uses: ./.github/workflows/common_build-to-tarball.yml
+    with:
+      container-registry: ghcr.io
+      registry-namespace: ${{ github.repository_owner }}
+      image-name: "htmx-go-portfolio"
+      image-tag: ${{ github.sha }}
+  publish-to-ghcr:
+    uses: ./.github/workflows/common_publish-from-tarball.yml
+    with:
+      docker-artifact-name: ${{ jobs.test-build-and-package.outputs.docker-artifact-name }}
+      tar-path-in-artifact: ${{ jobs.test-build-and-package.outputs.docker-tar-path }}
+      input-tag: ghcr.io/${{ github.repository_owner }}/htmx-go-portfolio:${{ github.sha }}
+      container-registry: ghcr.io
+      registry-user: ${{ github.actor }}
+      registry-password: ${{ secrets.GITHUB_TOKEN }}
+      output-tag: ghcr.io/${{ github.repository_owner }}/htmx-go-portfolio:${{ github.sha }}

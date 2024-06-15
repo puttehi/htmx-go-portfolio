@@ -1,0 +1,59 @@
+name: Publish Docker image from tarball artifact
+on:
+  workflow_call:
+    inputs:
+      docker-artifact-name:
+        description: "Docker image tarball artifact name"
+        required: true
+        type: string
+      tar-path-in-artifact:
+        description: "Image path inside artifact / after downloading it?"
+        required: true
+        type: string
+      input-tag:
+        description: "What is the full image tag in the input archive? E.g. my-image:latest"
+        required: true
+        type: string
+      container-registry:
+        description: "Container registry to login and push to (<container-registry>/<registry-namespace>/<image-name>:<image-tag>)"
+        required: true
+        type: string
+      registry-user:
+        description: "Container registry login username"
+        required: true
+        type: string
+      registry-password:
+        description: "container registry login password"
+        required: true
+        type: string
+      output-tag:
+        description: "What to re-tag the image as and where to push to? E.g. ghcr.io/my-username/my-repo:latest"
+        required: true
+        type: string
+jobs:
+  publish-docker-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Docker image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.docker-artifact-name }}
+          path: /tmp
+      - name: Show downloaded contents
+        run: |
+          ls -laR /tmp
+      - name: Load Docker image
+        run: |
+          docker load -i /tmp/${{ inputs.tar-path-in-artifact }}
+      - name: Login to container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ inputs.container-registry }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag Docker image for pushing
+        run: |
+          docker tag ${{ inputs.input-tag }} ${{ inputs.output-tag }}
+      - name: Push Docker image
+        run: |
+          docker push ${{ inputs.output-tag }}
