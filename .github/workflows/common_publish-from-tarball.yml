@@ -33,18 +33,20 @@ on:
 jobs:
   publish-docker-package:
     runs-on: ubuntu-latest
+    env:
+      EXTRACT_DIR: ./tmp
     steps:
       - name: Download Docker image artifact
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.docker-artifact-name }}
-          path: /tmp
+          path: ${{ env.EXTRACT_DIR }}
       - name: Show downloaded contents
         run: |
-          ls -laR /tmp
+          ls -la ${{ env.EXTRACT_DIR }}
       - name: Load Docker image
         run: |
-          docker load -i /tmp/${{ inputs.tar-path-in-artifact }}
+          docker load -i ${{ env.EXTRACT_DIR }}/${{ inputs.tar-path-in-artifact }}
       - name: Login to container registry
         uses: docker/login-action@v3
         with:
