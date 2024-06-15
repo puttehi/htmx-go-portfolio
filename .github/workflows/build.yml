@@ -1,0 +1,74 @@
+name: Build and package the project
+run-name: ${{ github.actor }} is building ref ${{ github.ref_name }}
+on:
+  workflow_call:
+    outputs:
+      docker-tar-path:
+        description: "Path of the tarball in the output artifact"
+        value: ${{ jobs.package-docker.outputs.docker-tar-path }}
+      docker-artifact-name:
+        description: "Output artifact name that contains the Docker tarball"
+        value: ${{ jobs.package-docker.outputs.docker-artifact-name }}
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Setup Go 1.22
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - name: Go setup dependencies
+        run: |
+          make setup
+      - name: Go test
+        run: |
+          make test
+  package-docker:
+    runs-on: ubuntu-latest
+    needs: unit-test
+    env:
+      DOCKER_REGISTRY: "https://ghcr.io/${{ github.repository_owner }}"
+      DOCKER_IMAGE: "htmx-go-portfolio"
+      DOCKER_TAG: "${{ github.sha }}"
+    outputs:
+      docker-tar-path: ${{ steps.tarball.outputs.docker-tar-path }}
+      docker-artifact-name: docker-image
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Tailwind install
+        run: |
+          make tailwind-cli
+      - name: Tailwind build
+        run: |
+          make tailwind-build
+      - name: Docker build
+        env:
+          DOCKER_BUILD_ARGS: >-
+            '--label "org.opencontainers.image.source=https://github.com/${{ github.repository }}" --label "org.opencontainers.image.description=Personal portfolio frontend"'
+        run: |
+          make docker-build \
+            DOCKER_REGISTRY=${{ env.DOCKER_REGISTRY }} \
+            DOCKER_IMAGE=${{ env.DOCKER_IMAGE }} \
+            DOCKER_TAG=${{ env.DOCKER_TAG }} \
+            DOCKER_BUILD_ARGS=${{ env.DOCKER_BUILD_ARGS }}
+      - name: Tarball
+        id: tarball
+        env:
+          DOCKER_TAR_PATH: "/tmp/image.tar"
+        run: |
+          make docker-save \
+            DOCKER_REGISTRY="${{ env.DOCKER_REGISTRY }}" \
+            DOCKER_IMAGE="${{ env.DOCKER_IMAGE }}" \
+            DOCKER_TAG="${{ env.DOCKER_TAG }}" \
+            DOCKER_SAVE_ARGS="--output ${{ env.DOCKER_TAR_PATH }}"
+          echo "docker-tar-path=${{ env.DOCKER_TAR_PATH }}" >> $GITHUB_OUTPUT
+      - name: Upload Docker image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image # Has to match output in package-docker.outputs
+          path: ${{ steps.tarball.outputs.docker-tar-path }}

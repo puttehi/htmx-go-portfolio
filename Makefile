@@ -3,7 +3,11 @@ SHELL:=/bin/bash
 # Prevent pushing publicly by accident
 DOCKER_REGISTRY:=no-registry.local
 DOCKER_IMAGE:=htmx-go-portfolio
-EXPOSED_AT:=8080
+DOCKER_TAG:=latest
+DOCKER_FULL:=$(DOCKER_REGISTRY)/$(DOCKER_IMAGE):$(DOCKER_TAG)
+DOCKER_BUILD_ARGS:=
+DOCKER_SAVE_ARGS:=
+EXPOSED_AT:=3000
 
 # TailwindCSS CLI installation
 TAILWINDCSS_PLATFORM:=linux
@@ -67,21 +71,24 @@ docker: docker-setup docker-build docker-run
 docker-setup: tailwind-cli
 
 docker-build:
-	docker build --tag $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):latest .
+	docker build --tag $(DOCKER_FULL) $(DOCKER_BUILD_ARGS) .
 
 docker-run:
-	docker run -v ./configs:/configs -p $(EXPOSED_AT):3000 $(DOCKER_REGISTRY)/$(DOCKER_IMAGE)
+	docker run -v ./configs:/configs -p $(EXPOSED_AT):3000 $(DOCKER_FULL)
+
+docker-save:
+	docker save $(DOCKER_SAVE_ARGS) $(DOCKER_FULL)
 
 ##########
 # Podman #
 ##########
 
-podman-docker-sync:
-	docker save $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):latest | podman load
+podman-docker-sync: docker-save
+	podman load
 
 podman-clean:
 	mv $$HOME/tmp/htmx-go-portfolio/ $$HOME/tmp/htmx-go-portfolio.old.d
 
 podman-tarball:
-	mkdir -p $$HOME/tmp/htmx-go-portfolio && podman save -o $$HOME/tmp/htmx-go-portfolio/latest.tar --format oci-archive $(DOCKER_REGISTRY)/$(DOCKER_IMAGE):latest
+	mkdir -p $$HOME/tmp/htmx-go-portfolio && podman save -o $$HOME/tmp/htmx-go-portfolio/$(DOCKER_TAG).tar --format oci-archive $(DOCKER_FULL)
 
