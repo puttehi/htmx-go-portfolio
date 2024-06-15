@@ -61,4 +61,4 @@ jobs:
           docker tag ${{ inputs.input-tag }} ${{ inputs.container-registry }}/${{ inputs.output-tag }}
       - name: Push Docker image
         run: |
-          docker push ${{ inputs.output-tag }}
+          docker push ${{ inputs.container-registry }}/${{ inputs.output-tag }}
