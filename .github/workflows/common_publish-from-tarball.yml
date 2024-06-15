@@ -49,8 +49,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ inputs.container-registry }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ inputs.registry-user }}
+          password: ${{ inputs.registry-password }}
       - name: Tag Docker image for pushing
         run: |
           docker tag ${{ inputs.input-tag }} ${{ inputs.output-tag }}
