@@ -1,0 +1,12 @@
+{{ $src := .Get "src"}}
+{{ if .Get "wrap"}}
+<div class="mt-4 mb-4 md:mt-0 md:mb-0">
+    {{ with resources.Get $src }}
+    <video class="" src="{{ .RelPermalink }}" muted="" autoplay="" loop=""></video>
+    {{ end }}
+</div>
+{{ else }}
+{{ with resources.Get $src }}
+<video class="" src="{{ .RelPermalink }}" muted="" autoplay="" loop=""></video>
+{{ end }}
+{{ end }}

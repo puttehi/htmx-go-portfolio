@@ -19,6 +19,8 @@ TAILWINDCSS_PLATFORM:=linux
 TAILWINDCSS_ARCH:=x64
 TAILWINDCSS_VERSION:=v3.3.5
 TAILWINDCSS:=$(TOOLS_ROOT_DIR)/tailwindcss
+TAILWINDCSS_IN:=./web/assets/css/styles.css
+TAILWINDCSS_OUT:=./web/assets/css/compiled.css
 
 .PHONY:$(MAKECMDGOALS)
 
@@ -38,8 +40,23 @@ build: test
 build-all: test
 	go build -o build/ ./...
 
+hugo-build:
+	hugo --gc -s ./web
+
+# Enables draft pages and changes webroot to local container (for make dev)
+hugo-build-dev:
+	hugo --gc -s ./web -D -b http://localhost:$(EXPOSED_AT)
+
+# Shows drafts
+hugo-run-dev:
+	hugo server -D -s ./web
+
+hugo-run:
+	hugo server -s ./web
+
 clean:
 	rm -r build/*
+	rm -r web/public
 
 test:
 	go test -v ./...
@@ -68,7 +85,7 @@ tailwind-cli: ensure-tools
 
 tailwind-build:
 	@echo "Building CSS..."
-	$(TAILWINDCSS) -o ./web/css/styles.css
+	$(TAILWINDCSS) -i $(TAILWINDCSS_IN) -o $(TAILWINDCSS_OUT)
 
 ##########
 # Docker #

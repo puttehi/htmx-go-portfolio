@@ -1,0 +1,4 @@
+baseURL = 'https://puttehi.eu'
+languageCode = 'en-us'
+title = 'puttehi.eu (Petteri Zitting)'
+# theme = 'puttehi-dark'

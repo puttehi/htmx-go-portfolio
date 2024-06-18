@@ -1,0 +1,4 @@
+{{ with resources.Get "/css/compiled.css" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" type="text/css" media="all" />
+<!-- abc -->
+{{ end }}
