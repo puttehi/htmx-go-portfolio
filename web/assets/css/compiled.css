@@ -553,7 +553,7 @@ h5 {
 }
 
 p {
-  margin-bottom: 0.5rem;
+  /*@apply mb-2*/
 }
 
 article {
@@ -918,6 +918,41 @@ article {
   padding-bottom: 0.5rem;
 }
 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.link {
+  --tw-text-opacity: 1;
+  color: rgb(125 211 252 / var(--tw-text-opacity));
+  text-decoration-line: none;
+}
+
+.link:visited {
+  color: rgb(216 180 254 );
+}
+
+.link:hover {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+.inline-svg-icon {
+  margin-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.inline-svg-text {
+  margin-left: 0.25rem;
+  display: inline-block;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -934,6 +969,10 @@ article {
   position: sticky;
 }
 
+.float-right {
+  float: right;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -941,6 +980,10 @@ article {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mt-0 {
+  margin-top: 0px;
 }
 
 .mt-12 {
@@ -982,14 +1025,8 @@ article {
   padding-bottom: 0.5rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-gray-100 {
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
 @media (min-width: 768px) {

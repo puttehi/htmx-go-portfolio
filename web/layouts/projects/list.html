@@ -1,15 +1,5 @@
 {{ define "main" }}
-<section id="projects" class="scroll-mt-16 md:scroll-mt-12 my-2 py-2">
-    <h2 class="text-gray-100 text-4xl mb-4 mt-4">Projects</h2>
-    <p>Check out these past projects!</p>
-    <div class="divide-y divide-dashed">
-        {{ $paginator := .Paginate (where .Pages "Type" "projects") 3 }}
-
-        {{ range $paginator.Pages }}
-        {{ partial "projects/project-item.html" . }}
-        {{ end }}
-
-        {{ template "_internal/pagination.html" . }}
-    </div>
+<section id="projects" class="section-top">
+    {{ partial "projects/section.html" . }}
 </section>
 {{ end }}

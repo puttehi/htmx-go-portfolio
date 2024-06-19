@@ -28,7 +28,7 @@
         @apply text-gray-100 text-xl mt-2
     }
     p {
-        @apply mb-2
+        /*@apply mb-2*/
     }
     article {
         & ul {
@@ -63,5 +63,19 @@
     }
     .section-top {
         @apply scroll-mt-24 my-2 py-2
+    }
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .link {
+        @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
+    }
+    .inline-svg-icon {
+        @apply inline-block w-6 h-6 mb-3 mt-2
+    }
+    .inline-svg-text {
+        @apply inline-block ml-1
     }
 }

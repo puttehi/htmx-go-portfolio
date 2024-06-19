@@ -1,0 +1,27 @@
+{{- /* TODO: if startsWith leading slash or "mp4" or "svg" or "css", use link, not resources */ -}}
+{{ if (hasSuffix .Destination "svg") }}
+    {{ $svg := "" }}
+    {{ with resources.Get .Destination }}
+        {{ $svg = .Content }}
+    {{ end }}
+    {{ if .Attributes.class }}
+        {{ $class := .Attributes.class }}
+        {{ $match := "<svg (.*)?>(.*)</svg>" }}
+        {{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $class }}
+        {{ replaceRE $match $replaceWith $svg | safeHTML }}
+    {{ else }}
+        {{ $svg | safeHTML }}
+    {{ end }}
+{{ else if (hasSuffix .Destination "mp4") }}
+{{ $videoLink := "" }}
+{{ with resources.Get .Destination }}
+    {{ $videoLink = .Permalink }}
+{{ end }}
+<video src="{{ $videoLink | safeURL }}" {{- if .Attributes.class }} class="{{ .Attributes.class }}" {{ end -}}  muted="" autoplay="" loop=""></video>
+{{ else }}
+{{ $imgLink := "" }}
+{{ with resources.Get .Destination }}
+    {{ $imgLink = .Permalink }}
+{{ end }}
+<img src="{{ $imgLink | safeURL }}" {{- with .Text }} alt="{{ . }}" {{ end -}} {{- with .Title }} title="{{ . }}" {{ end -}}>
+{{- end -}}

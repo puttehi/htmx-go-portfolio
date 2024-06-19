@@ -9,7 +9,7 @@
     <lastBuildDate>Mon, 17 Jun 2024 23:47:52 +0300</lastBuildDate>
     <atom:link href="http://localhost:3000/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Www.puttehi.eu</title>
+      <title>www.puttehi.eu</title>
       <link>http://localhost:3000/projects/www.puttehi.eu/</link>
       <pubDate>Mon, 17 Jun 2024 23:47:52 +0300</pubDate>
       <guid>http://localhost:3000/projects/www.puttehi.eu/</guid>
@@ -20,7 +20,7 @@
       <link>http://localhost:3000/projects/infinigolf/</link>
       <pubDate>Mon, 17 Jun 2024 23:47:21 +0300</pubDate>
       <guid>http://localhost:3000/projects/infinigolf/</guid>
-      <description>Platform Android&#xA;Links { &amp;#34;url&amp;#34;: &amp;#34;https://puttehi.itch.io/infinigolf&amp;#34;, &amp;#34;text&amp;#34;: &amp;#34;Infinigolf (itch.io)&amp;#34;, &amp;#34;svg&amp;#34;: &amp;#34;SVGItchIo&amp;#34; } Video Details Overview Mobile game development in the form of an &amp;ldquo;infinite runner&amp;rdquo; -style minigolf game.&#xA;Prototype developed solo in about 3 months Acquired expertise Algorithms and data structures (procedural generation) Advanced cameras and directing (Cinemachine) Data tweening (DOTween) 3D modeling (DOTween) Node-based shader progamming (Shader Graph) Object pooling (LeanPool) Query building (LINQ) Market research (Mobile) Publishing (Store requirements) Languages C# (Unity) GLSL (Shader Graph) </description>
+      <description>Android Infinigolf (itch.io)&#xA;Overview Mobile game development in the form of an &amp;ldquo;infinite runner&amp;rdquo; -style minigolf game.&#xA;Prototype developed solo in about 3 months Acquired expertise Algorithms and data structures (procedural generation) Advanced cameras and directing (Cinemachine) Data tweening (DOTween) 3D modeling (ProBuilder) Node-based shader progamming (Shader Graph) Object pooling (LeanPool) Query building (LINQ) Market research (Mobile) Publishing (Store requirements) Languages C# (Unity) GLSL (Shader Graph) </description>
     </item>
   </channel>
 </rss>
