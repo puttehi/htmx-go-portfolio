@@ -1,3 +1,12 @@
 {{ define "main" }}
 {{ partial "projects/project-item.html" . }}
+{{- $pages := where .Site.RegularPages "Section" "in" "projects" -}}
+<div>
+<p class="mt-2">Check out these other projects!</p>
+<div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
+{{- range $index, $page := $pages -}}
+    <a class="link pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}" href="{{ .RelPermalink }}">{{ $page.Title }}</a>
+{{- end -}}
+</div>
+</div>
 {{ end }}

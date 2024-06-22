@@ -1021,16 +1021,16 @@ article {
   margin-top: 3rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
 
 .block {
   display: block;
-}
-
-.h-24 {
-  height: 6rem;
 }
 
 .h-28 {
@@ -1047,10 +1047,6 @@ article {
 
 .max-h-\[36rem\] {
   max-height: 36rem;
-}
-
-.w-24 {
-  width: 6rem;
 }
 
 .w-28 {
@@ -1087,6 +1083,10 @@ article {
 
 .divide-dashed > :not([hidden]) ~ :not([hidden]) {
   border-style: dashed;
+}
+
+.divide-none > :not([hidden]) ~ :not([hidden]) {
+  border-style: none;
 }
 
 .border-y {
