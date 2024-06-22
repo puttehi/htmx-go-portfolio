@@ -84,8 +84,8 @@
     .flex-svg-wrapper {
         display: flex;
         align-items: center;
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
+        margin-top: 1.0rem;
+        margin-bottom: 1.0rem;
     }
     .flex-svg-icon {
         width: 1.5rem;

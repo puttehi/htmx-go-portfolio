@@ -1,11 +1,13 @@
-<h2 class="mt-0">Projects</h2>
+<h2 class="mt-0"><a class="link" href="/projects">Projects</a></h2>
+{{- $paginator := .Paginate (where .Pages "Type" "projects") 99 -}}
 <p>Check out these past projects!</p>
+<div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
+{{- range $index, $page := $paginator.Pages -}}
+    <a class="link pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
+{{- end -}}
+</div>
 <div class="divide-y divide-dashed">
-    {{ $paginator := .Paginate (where .Pages "Type" "projects") 3 }}
-
     {{ range $paginator.Pages }}
     {{ partial "projects/project-item.html" . }}
     {{ end }}
-
-    {{ template "_internal/pagination.html" . }}
 </div>

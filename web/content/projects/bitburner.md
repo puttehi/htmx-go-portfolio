@@ -9,16 +9,16 @@ draft = true
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [puttehi/bitburner-scripts BitNode 1 (GitHub)](https://github.com/puttehi/bitburner-scripts/tree/BN1)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Bitburner in Steam (Steam Store)](https://store.steampowered.com/app/1812820/Bitburner/)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

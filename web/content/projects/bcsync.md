@@ -9,23 +9,23 @@ draft = true
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [puttehi/bcsync (GitHub)](https://github.com/puttehi/bcsync)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Replay database](https://ballchasing.com)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Rocket League in Steam](https://store.steampowered.com/app/252950/Rocket_League/)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

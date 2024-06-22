@@ -9,9 +9,9 @@ draft = true
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [puttehi/discord-spaghetti-bot (GitHub)](https://github.com/puttehi/discord-spaghetti-bot)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

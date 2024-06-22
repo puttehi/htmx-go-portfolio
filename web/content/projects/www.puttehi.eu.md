@@ -7,10 +7,12 @@ draft = true
 
 #### Linux
 
+{{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [puttehi/puttehi-cloud (GitHub)](https://github.com/puttehi/puttehi-cloud)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
+{{</ html/div-rendered >}}
 
 ##### Overview
 

@@ -9,10 +9,12 @@ draft = true
 ![Alt text](mp4/infinigolf.mp4)
 {class="float-video"}
 
+{{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/itchio-textless-white.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Infinigolf (itch.io)](https://puttehi.itch.io/infinigolf)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
+{{</ html/div-rendered >}}
 
 ##### Overview
 

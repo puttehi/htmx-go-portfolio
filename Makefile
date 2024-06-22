@@ -8,6 +8,8 @@ DOCKER_FULL:=$(DOCKER_REGISTRY)/$(DOCKER_IMAGE):$(DOCKER_TAG)
 DOCKER_BUILD_ARGS:=
 DOCKER_SAVE_ARGS:=
 EXPOSED_AT:=3000
+# Live reload port
+EXPOSED_AT_AIR_PROXY:=3001
 
 # E.g. -i filepath/of/DOCKER_SAVE_ARGS
 PODMAN_LOAD_ARGS:=
@@ -46,6 +48,9 @@ hugo-build:
 # Enables draft pages and changes webroot to local container (for make dev)
 hugo-build-dev:
 	hugo --gc -s ./web -D -b http://localhost:$(EXPOSED_AT)
+
+hugo-build-dev-air-proxy:
+	hugo --gc -s ./web -D -b http://localhost:$(EXPOSED_AT_AIR_PROXY)
 
 # Shows drafts
 hugo-run-dev:

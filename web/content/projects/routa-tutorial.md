@@ -12,16 +12,16 @@ draft = true
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Written tutorial: Part 1 (CodiMD @KAMK DCLabra)](https://gitlab.dclabra.fi/wiki/s/HJrXEPW58)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Written tutorial: Part 2 (CodiMD @KAMK DCLabra)](https://gitlab.dclabra.fi/wiki/s/rkHV83ccI)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

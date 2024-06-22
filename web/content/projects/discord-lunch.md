@@ -9,16 +9,16 @@ draft = true
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [puttehi/lounaat-info](https://github.com/puttehi/lounaat-info)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [Lunch menus (lounaat.info)](https://www.lounaat.info)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

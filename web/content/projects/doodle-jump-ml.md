@@ -6,15 +6,15 @@ draft = true
 +++
 
 ![Alt text](mp4/machine_learning.mp4)
-{class="float-video"}
+{class="float-video max-h-[28rem]"}
 
 #### Web
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
-{class="inline-svg-icon"}
+{class="flex-svg-icon"}
 [puttehi/dj-machine-learning (GitHub)](https://github.com/puttehi/dj-machine-learning)
-{class="inline-svg-text link"}
+{class="flex-svg-text link"}
 {{</ html/div-rendered >}}
 
 ##### Overview
