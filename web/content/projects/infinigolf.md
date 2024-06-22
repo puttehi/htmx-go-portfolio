@@ -1,12 +1,13 @@
 +++
 title = 'Infinigolf (Unity)'
 date = 2024-06-17T23:47:21+03:00
+weight = 1 # Top
 draft = true
 +++
 #### Android
 
 ![Alt text](mp4/infinigolf.mp4)
-{class="float-right"}
+{class="float-none md:float-right"}
 
 ![Alt text](svg/itchio-textless-white.svg)
 {class="inline-svg-icon"}

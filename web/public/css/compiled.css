@@ -527,8 +527,8 @@ h2 {
 }
 
 h3 {
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   font-size: 1.875rem;
   line-height: 2.25rem;
   --tw-text-opacity: 1;
@@ -545,6 +545,7 @@ h4 {
 }
 
 h5 {
+  margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -953,6 +954,35 @@ article {
   display: inline-block;
 }
 
+.flex-svg-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 1.0rem;
+  margin-bottom: 1.0rem;
+}
+
+.flex-svg-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.flex-svg-text {
+  flex: 1;
+  margin-left: 0.25rem;
+  /* ml-1 */
+  align-content: center;
+}
+
+/* .inline-multi:nth-of-type(2n+1) {
+        clear: left;
+    } */
+
+/* .inline-multi:nth-of-type(2n)::after {
+        content: "after..";
+        display: block;
+        clear: both;
+    } */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -969,8 +999,8 @@ article {
   position: sticky;
 }
 
-.float-right {
-  float: right;
+.float-none {
+  float: none;
 }
 
 .my-2 {
@@ -1030,6 +1060,10 @@ article {
 }
 
 @media (min-width: 768px) {
+  .md\:float-right {
+    float: right;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }

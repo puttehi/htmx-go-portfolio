@@ -6,9 +6,14 @@
     {{ end }}
     {{ if .Attributes.class }}
         {{ $class := .Attributes.class }}
-        {{ $match := "<svg (.*)?>(.*)</svg>" }}
-        {{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $class }}
-        {{ replaceRE $match $replaceWith $svg | safeHTML }}
+        {{ $classRegex := `class=".*"` }}
+        {{ if not (findRE $classRegex $svg) }}
+            {{ $remainder := substr $svg 4 }}
+            {{ printf `<svg class="%s" %s` $class $remainder | safeHTML }}
+        {{ else }}
+            {{ $replaceWith := printf `class="%s"` $class }}
+            {{ replaceRE $classRegex $replaceWith $svg | safeHTML }}
+        {{ end }}
     {{ else }}
         {{ $svg | safeHTML }}
     {{ end }}
