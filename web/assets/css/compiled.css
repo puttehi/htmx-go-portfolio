@@ -925,6 +925,17 @@ article {
   display: table;
 }
 
+.float-video {
+  float: none;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .float-video {
+    float: right;
+  }
+}
+
 .link {
   --tw-text-opacity: 1;
   color: rgb(125 211 252 / var(--tw-text-opacity));
@@ -957,8 +968,8 @@ article {
 .flex-svg-wrapper {
   display: flex;
   align-items: center;
-  margin-top: 1.0rem;
-  margin-bottom: 1.0rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .flex-svg-icon {
@@ -972,16 +983,6 @@ article {
   /* ml-1 */
   align-content: center;
 }
-
-/* .inline-multi:nth-of-type(2n+1) {
-        clear: left;
-    } */
-
-/* .inline-multi:nth-of-type(2n)::after {
-        content: "after..";
-        display: block;
-        clear: both;
-    } */
 
 .sr-only {
   position: absolute;
@@ -997,10 +998,6 @@ article {
 
 .sticky {
   position: sticky;
-}
-
-.float-none {
-  float: none;
 }
 
 .my-2 {
@@ -1032,8 +1029,16 @@ article {
   height: 1.25rem;
 }
 
+.max-h-\[36rem\] {
+  max-height: 36rem;
+}
+
 .w-5 {
   width: 1.25rem;
+}
+
+.max-w-\[24rem\] {
+  max-width: 24rem;
 }
 
 .scroll-mt-16 {
@@ -1060,10 +1065,6 @@ article {
 }
 
 @media (min-width: 768px) {
-  .md\:float-right {
-    float: right;
-  }
-
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1074,5 +1075,11 @@ article {
 
   .md\:scroll-mt-12 {
     scroll-margin-top: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:max-w-\[32rem\] {
+    max-width: 32rem;
   }
 }

@@ -7,7 +7,7 @@ draft = true
 #### Android
 
 ![Alt text](mp4/infinigolf.mp4)
-{class="float-none md:float-right"}
+{class="float-video"}
 
 ![Alt text](svg/itchio-textless-white.svg)
 {class="inline-svg-icon"}

@@ -69,6 +69,9 @@
         clear: both;
         display: table;
     }
+    .float-video {
+        @apply float-none md:float-right ml-2
+    }
     .link {
         @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
     }
@@ -81,8 +84,8 @@
     .flex-svg-wrapper {
         display: flex;
         align-items: center;
-        margin-top: 1.0rem;
-        margin-bottom: 1.0rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
     }
     .flex-svg-icon {
         width: 1.5rem;
@@ -93,12 +96,4 @@
         margin-left: 0.25rem; /* ml-1 */
         align-content: center;
     }
-    /* .inline-multi:nth-of-type(2n+1) {
-        clear: left;
-    } */
-    /* .inline-multi:nth-of-type(2n)::after {
-        content: "after..";
-        display: block;
-        clear: both;
-    } */
 }

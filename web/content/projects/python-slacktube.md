@@ -1,7 +1,7 @@
 +++
 title = 'Python Slacktube'
 date = 2024-06-22T01:20:18+03:00
-weight = 0 # TODO: Set position!
+weight = 3
 draft = true
 +++
 
