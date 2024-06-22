@@ -22,11 +22,11 @@
 {{ with resources.Get .Destination }}
     {{ $videoLink = .Permalink }}
 {{ end }}
-<video src="{{ $videoLink | safeURL }}" {{- if .Attributes.class }} class="{{ .Attributes.class }}" {{ end -}}  muted="" autoplay="" loop=""></video>
+<video src="{{ $videoLink | safeURL }}" {{- if .Attributes.class }} class="{{ .Attributes.class }}" {{ end -}} muted="" autoplay="" loop=""></video>
 {{ else }}
 {{ $imgLink := "" }}
 {{ with resources.Get .Destination }}
     {{ $imgLink = .Permalink }}
 {{ end }}
-<img src="{{ $imgLink | safeURL }}" {{- with .Text }} alt="{{ . }}" {{ end -}} {{- with .Title }} title="{{ . }}" {{ end -}}>
+<img src="{{ $imgLink | safeURL }}" {{- if .Attributes.class }} class="{{ .Attributes.class }}" {{ end -}} {{- with .Text }} alt="{{ . }}" {{ end -}} {{- with .Title }} title="{{ . }}" {{ end -}}>
 {{- end -}}

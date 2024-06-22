@@ -20,6 +20,11 @@ A smart and detail-oriented DevOps Engineer from Kainuu, Finland who enjoys prog
 
 #### Cloud infrastructure and cloud solutions
 
+{{< html/tag-rendered _name="a" href="https://www.credly.com/badges/a47673f6-a68d-4362-852d-4d625c11726f" >}}
+![AWS Certified Cloud Practicioner badge. Links to credly.com.](png/aws-clf-co2.png)
+{ class="w-28 h-28 ml-2 my-2" }
+{{</ html/tag-rendered >}}
+
 - Google Cloud Platform (GCP)
 - Amazon Web Services (AWS)
 
