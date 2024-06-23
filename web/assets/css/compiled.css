@@ -952,6 +952,10 @@ article {
   text-decoration-line: underline;
 }
 
+.link.unvisited:visited {
+  color: rgb(125 211 252 );
+}
+
 .inline-svg-icon {
   margin-bottom: 0.75rem;
   margin-top: 0.5rem;
@@ -1083,10 +1087,6 @@ article {
 
 .divide-dashed > :not([hidden]) ~ :not([hidden]) {
   border-style: dashed;
-}
-
-.divide-none > :not([hidden]) ~ :not([hidden]) {
-  border-style: none;
 }
 
 .border-y {

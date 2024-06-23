@@ -75,6 +75,9 @@
     .link {
         @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
     }
+    .link.unvisited {
+        @apply visited:text-sky-300
+    }
     .inline-svg-icon {
         @apply inline-block w-6 h-6 mb-3 mt-2
     }
