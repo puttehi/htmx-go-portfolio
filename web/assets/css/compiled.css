@@ -510,7 +510,7 @@ main .main-wrapper {
 }
 
 h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-size: 3rem;
   line-height: 1;
   --tw-text-opacity: 1;
@@ -518,7 +518,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   margin-top: 1.5rem;
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -1007,6 +1007,11 @@ article {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mb-2 {

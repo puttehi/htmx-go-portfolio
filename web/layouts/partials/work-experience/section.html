@@ -1,12 +1,12 @@
-<h2 class="mt-0"><a class="link" href="/work-experience/">Work experience</a></h2>
+<h2 class="mt-0"><a class="link unvisited" href="/work-experience/">Work experience</a></h2>
 {{- $isRootSection := and (eq true .IsSection) (strings.HasSuffix "/work-experience" .Path) -}}
 {{ if not $isRootSection }}
-<h3 class="mt-0"><a class="link" href="{{.RelPermalink}}">🏢 {{ .Params.company }}</a></h2>
+<h3 class="mt-0"><a class="link unvisited" href="{{.RelPermalink}}">🏢 {{ .Params.company }}</a></h2>
 {{- $paginator := .Paginate (where .Pages "Type" "work-experience") 99 -}}
 <div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
 <span class="pr-2">🧑‍💻</span>
 {{- range $index, $page := $paginator.Pages -}}
-    <a class="link pr-2 pl-2" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
+    <a class="link unvisited pr-2 pl-2" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
 {{- end -}}
 </div>
 <div class="divide-y divide-dashed">
@@ -18,11 +18,11 @@
 <div class="divide-y divide-solid">
 {{ range .Sections }}
     <div class="divide-y divide-dashed py-2">
-        <h3 class="mt-2"><a class="link" href="{{.RelPermalink}}">🏢 {{ .Params.company }}</a></h2>
+        <h3 class="mt-2"><a class="link unvisited" href="{{.RelPermalink}}">🏢 {{ .Params.company }}</a></h2>
         <div class="divide-x-2 divide-solid py-2">
             <span class="pr-2">🧑‍💻</span>
             {{- range $index, $page := .Pages -}}
-                <a class="link pr-2 pl-2" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
+                <a class="link unvisited pr-2 pl-2" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
             {{- end -}}
         </div>
         <div class="divide-y divide-dashed">
