@@ -1,5 +1,5 @@
-<article class="my-4 scroll-mt-16" id="{{ $.File.BaseFileName }}">
-    <h3><a class="link unvisited" href="{{.Permalink}}">{{.Title}}</a></h3>
+<article class="my-4 scroll-mt-16" id="{{ .File.BaseFileName }}">
+    <h3><a class="anchor-link" href="#{{ .File.BaseFileName }}">{{.Title}}</a></h3>
     <div class="clearfix">
         {{ .Content }}
     </div>

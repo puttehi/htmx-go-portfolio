@@ -5,7 +5,8 @@
     <p class="mt-2">Check out my other experience!</p>
     <div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
         {{- range $index, $page := $pages -}}
-        <a class="link unvisited pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}" href="{{ .RelPermalink }}">{{ $page.Title }}</a>
+        <a class="anchor-link pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}" href="{{ .RelPermalink }}">{{ $page.Title
+            }}</a>
         {{- end -}}
     </div>
 </div>

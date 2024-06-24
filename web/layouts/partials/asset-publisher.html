@@ -1,0 +1,6 @@
+{{ $alwaysPublishedAssets := slice "svg/link-45deg.svg" "svg/box-arrow-up-right.svg" }}
+{{ range $alwaysPublishedAssets }}
+{{ with resources.Get . }}
+{{ .Publish }}
+{{ end }}
+{{ end }}

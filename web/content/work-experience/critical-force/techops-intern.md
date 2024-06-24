@@ -1,11 +1,9 @@
 +++
-title = 'TechOps Intern'
+title = '🧑‍💻 TechOps Intern'
 date = 2024-06-24T00:06:15+03:00
 draft = true
 weight = 3
 +++
-
-#### 🧑‍💻 TechOps Intern
 
 #### 📅 *06/2021 - 12/2021 (~6 months)*
 {class="mb-4"}

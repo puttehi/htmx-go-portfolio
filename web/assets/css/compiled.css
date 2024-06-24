@@ -434,6 +434,14 @@ video {
   display: none;
 }
 
+/* reset scroll behavior if user don’t like too much motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: initial;
+  }
+}
+
 body {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
@@ -952,21 +960,70 @@ article {
   text-decoration-line: underline;
 }
 
+.link::after {
+  content: url("/svg/box-arrow-up-right.svg");
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding-left: 0.5rem;
+}
+
 .link.unvisited:visited {
   color: rgb(125 211 252 );
 }
 
-.inline-svg-icon {
-  margin-bottom: 0.75rem;
-  margin-top: 0.5rem;
-  display: inline-block;
-  height: 1.5rem;
-  width: 1.5rem;
+.anchor-link {
+  scroll-margin-top: 4rem;
+  --tw-text-opacity: 1;
+  color: rgb(125 211 252 / var(--tw-text-opacity));
+  text-decoration-line: none;
 }
 
-.inline-svg-text {
-  margin-left: 0.25rem;
+.anchor-link:visited {
+  color: rgb(125 211 252 );
+}
+
+.anchor-link:hover {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+@media (min-width: 768px) {
+  .anchor-link {
+    scroll-margin-top: 3rem;
+  }
+}
+
+.anchor-link:hover::after {
+  content: url("/svg/link-45deg.svg");
   display: inline-block;
+  width: 2.0rem;
+  height: 2.0rem;
+  padding-left: 0.5rem;
+}
+
+.anchor-link-small {
+  scroll-margin-top: 4rem;
+  --tw-text-opacity: 1;
+  color: rgb(125 211 252 / var(--tw-text-opacity));
+  text-decoration-line: none;
+}
+
+.anchor-link-small:visited {
+  color: rgb(125 211 252 );
+}
+
+.anchor-link-small:hover {
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+@media (min-width: 768px) {
+  .anchor-link-small {
+    scroll-margin-top: 3rem;
+  }
 }
 
 .flex-svg-wrapper {
@@ -1012,10 +1069,6 @@ article {
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 
 .mb-4 {
@@ -1102,6 +1155,10 @@ article {
   border-style: dashed;
 }
 
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -1116,11 +1173,6 @@ article {
   padding-bottom: 0.5rem;
 }
 
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -1131,6 +1183,16 @@ article {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.after\:h-4::after {
+  content: var(--tw-content);
+  height: 1rem;
+}
+
+.after\:w-4::after {
+  content: var(--tw-content);
+  width: 1rem;
 }
 
 @media (min-width: 768px) {

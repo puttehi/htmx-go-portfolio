@@ -1,10 +1,12 @@
-<h2 class="mt-0"><a class="link unvisited" href="/projects/">Projects</a></h2>
+<h2 class="mt-0"><a class="anchor-link" href="/#projects">Projects</a></h2>
 {{- $paginator := .Paginate (where .Pages "Type" "projects") 99 -}}
 <p class="mt-2">Check out these past projects!</p>
 <div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
-{{- range $index, $page := $paginator.Pages -}}
-    <a class="link unvisited pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
-{{- end -}}
+    {{- range $index, $page := $paginator.Pages -}}
+    <a class="anchor-link-small after:w-4 after:h-4 pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}"
+        href="#{{ $page.File.BaseFileName }}">{{
+        $page.Title }}</a>
+    {{- end -}}
 </div>
 <div class="divide-y divide-dashed">
     {{ range $paginator.Pages }}

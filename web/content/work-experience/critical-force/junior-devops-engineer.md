@@ -1,11 +1,9 @@
 +++
-title = 'Junior DevOps Engineer'
+title = '🧑‍💻 Junior DevOps Engineer'
 date = 2024-06-24T00:06:10+03:00
 draft = true
 weight = 2
 +++
-
-#### 🧑‍💻 Junior DevOps Engineer
 
 #### 📅 *01/2022 - 02/2023 (~14 months)*
 {class="mb-4"}

@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+    /* reset scroll behavior if user don’t like too much motion */
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: initial;
+      }
+    }
     body {
         @apply bg-gray-700
     }
@@ -75,8 +81,28 @@
     .link {
         @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
     }
+    .link::after {
+        content: url("/svg/box-arrow-up-right.svg");
+        display: inline-block;
+        width: 1.2rem;
+        height: 1.2rem;
+        padding-left: 0.5rem;
+    }
     .link.unvisited {
         @apply visited:text-sky-300
+    }
+    .anchor-link {
+        @apply scroll-mt-16 md:scroll-mt-12 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-sky-300
+    }
+    .anchor-link:hover::after {
+        content: url("/svg/link-45deg.svg");
+        display: inline-block;
+        width: 2.0rem;
+        height: 2.0rem;
+        padding-left: 0.5rem;
+    }
+    .anchor-link-small {
+        @apply scroll-mt-16 md:scroll-mt-12 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-sky-300
     }
     .inline-svg-icon {
         @apply inline-block w-6 h-6 mb-3 mt-2

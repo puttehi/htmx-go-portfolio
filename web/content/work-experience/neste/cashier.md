@@ -1,11 +1,9 @@
 +++
-title = 'Cashier'
+title = '🧑‍💻 Cashier'
 date = 2024-06-24T00:06:26+03:00
 draft = true
 weight = 1
 +++
-
-#### 🧑‍💻 Cashier
 
 #### 📅 *09/2013 - 08/2019 (~6 years)*
 {class="mb-4"}
