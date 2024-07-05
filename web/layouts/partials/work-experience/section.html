@@ -6,7 +6,6 @@
     }}</a></h2>
 {{- $paginator := .Paginate (where .Pages "Type" "work-experience") 99 -}}
 <div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
-    <span class="pr-2">🧑‍💻</span>
     {{- range $index, $page := $paginator.Pages -}}
     <a class="anchor-link-small pr-2 pl-2" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
     {{- end -}}

@@ -1,5 +1,5 @@
 +++
-title = 'Easily extendable Discord bot'
+title = '📦 Easily extendable Discord bot'
 date = 2024-06-22T21:30:56+03:00
 weight = 8
 draft = true

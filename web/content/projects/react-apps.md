@@ -1,5 +1,5 @@
 +++
-title = 'React applications'
+title = '📦 React applications'
 date = 2024-06-22T21:30:37+03:00
 weight = 6
 draft = true

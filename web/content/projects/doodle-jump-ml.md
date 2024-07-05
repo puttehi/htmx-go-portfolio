@@ -1,5 +1,5 @@
 +++
-title = 'Neuroevolution inside a game clone'
+title = '📦 Neuroevolution inside a game clone'
 date = 2024-06-22T21:30:48+03:00
 weight = 7
 draft = true

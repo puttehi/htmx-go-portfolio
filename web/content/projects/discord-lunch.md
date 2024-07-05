@@ -1,5 +1,5 @@
 +++
-title = 'Discord lunch bot'
+title = '📦 Discord lunch bot'
 date = 2024-06-22T21:31:05+03:00
 weight = 9
 draft = true
