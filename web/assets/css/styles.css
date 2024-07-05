@@ -18,27 +18,21 @@
     main .main-wrapper {
         @apply px-4 py-4 bg-white border-gray-200 dark:bg-gray-800 text-gray-300 divide-y-4 divide-double
     }
-    h1 {
-        @apply text-gray-100 text-5xl mb-6
-    }
-    h2 {
-        @apply text-gray-100 text-4xl mb-6 mt-6
-    }
-    h3 {
-        @apply text-gray-100 text-3xl mb-4 mt-4
-    }
-    h4 {
-        @apply text-gray-100 text-2xl mb-2 mt-2
-    }
-    h5 {
-        @apply text-gray-100 text-xl mb-2 mt-2
-    }
-    p {
-        /*@apply mb-2*/
-    }
-    article {
-        & ul {
-            @apply list-disc list-inside
+    section {
+        & h1 {
+            @apply text-gray-100 text-5xl my-6 /* mb-6 */
+        }
+        & h2 {
+            @apply text-gray-100 text-4xl my-4 /* mb-6 mt-6 */
+        }
+        & h3 {
+            @apply text-gray-100 text-3xl my-4 /* mb-4 mt-4 */
+        }
+        & h4 {
+            @apply text-gray-100 text-2xl my-2 /* mb-2 mt-2 */
+        }
+        & h5 {
+            @apply text-gray-100 text-xl my-2 /* mb-2 mt-2 */
         }
     }
 }
@@ -68,7 +62,33 @@
         @apply block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent
     }
     .section-top {
-        @apply scroll-mt-24 my-2 py-2
+        @apply scroll-mt-24 /*my-2 py-4*/
+    }
+    .section-content {
+        @apply scroll-mt-16 md:scroll-mt-12 /*my-2 pt-6 */py-4
+    }
+    .article {
+        @apply /*my-4*/ scroll-mt-16 py-4
+    }
+    .article {
+        & ul {
+            @apply list-disc list-inside
+        }
+        & h1 {
+            @apply text-gray-100 text-5xl my-6 /* mb-6 */
+        }
+        & h2 {
+            @apply text-gray-100 text-4xl my-4 /* mb-6 mt-6 */
+        }
+        & h3 {
+            @apply text-gray-100 text-3xl my-4 /* mb-4 mt-4 */
+        }
+        & h4 {
+            @apply text-gray-100 text-2xl my-2 /* mb-2 mt-2 */
+        }
+        & h5 {
+            @apply text-gray-100 text-xl my-2 /* mb-2 mt-2 */
+        }
     }
     .clearfix::after {
         content: "";

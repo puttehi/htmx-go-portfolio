@@ -1,7 +1,7 @@
-<h2 class="mt-0"><a class="anchor-link" href="/#work-experience">Work experience</a></h2>
+<h2><a class="anchor-link" href="/#work-experience">Work experience</a></h2>
 {{- $isRootSection := and (eq true .IsSection) (strings.HasSuffix "/work-experience" .Path) -}}
 {{ if not $isRootSection }}
-<h3 class="mt-0"><a class="anchor-link" id="{{ .Params.subsection }}" href="#{{ .Params.subsection }}">🏢 {{
+<h3><a class="anchor-link" id="{{ .Params.subsection }}" href="#{{ .Params.subsection }}">🏢 {{
     .Params.company
     }}</a></h2>
 {{- $paginator := .Paginate (where .Pages "Type" "work-experience") 99 -}}
