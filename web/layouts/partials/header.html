@@ -6,16 +6,28 @@
 {{- end -}}
 <nav class="navbar-fixed" id="navbar-container">
     <div class="navbar-wrapper">
+        <script>
+            function hamburgerToggle() {
+                const classes = document.getElementById('navbar-collapse').classList
+                if (classes.contains("hidden")) {
+                    classes.remove("hidden")
+                    classes.add("block")
+                } else {
+                    classes.add("hidden")
+                    classes.remove("block")
+                }
+            }
+        </script>
         <a href="{{ $homeHref }}" class="navbar-home" aria-current="page">Petteri Zitting {{ $homeParens }}</a>
-        <button hx-get="/navbar/show" hx_swap="innerHtml" hx-target="closest nav" type="button" class="navbar-hamburger"
-            aria-controls="navbar-collapse" aria-expanded="false">
+        <button type="button" class="navbar-hamburger" aria-controls="navbar-collapse" aria-expanded="false"
+            onclick="hamburgerToggle()">
             <span class="sr-only">Open main menu</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M1 1h15M1 7h15M1 13h15" />
             </svg>
         </button>
-        <div class="navbar-link-wrapper" id="navbar-collapse">
+        <div class="hidden w-full md:block md:w-auto" id="navbar-collapse">
             <ul class="unordered-list">
                 <li>
                     <a href="/#skills" class="navbar-link">Skills</a>
