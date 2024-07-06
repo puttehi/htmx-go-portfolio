@@ -6,8 +6,8 @@
     {{- partial "head.html" . }}
 </head>
 
-<body>
-    <div class="body-wrapper">
+<body class="bg-gray-700">
+    <div class="container mx-auto px-4 py-4">
         <header>
             {{ partial "header.html" . }}
         </header>
@@ -15,7 +15,7 @@
         <div class="mt-12"></div>
         <main>
             {{ block "main-wrapper" . }}
-            <div class="main-wrapper">
+            <div class="px-4 py-4 bg-white border-gray-200 dark:bg-gray-800 text-gray-300 divide-y-4 divide-double">
                 {{ block "main" . }}
                 MISSING MAIN BLOCK FROM TEMPLATE :(
                 <br>
