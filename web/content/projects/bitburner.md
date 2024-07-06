@@ -11,14 +11,14 @@ draft = true
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/bitburner-scripts BitNode 1 (GitHub)](https://github.com/puttehi/bitburner-scripts/tree/BN1)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
 {class="flex-svg-icon"}
 [Bitburner in Steam (Steam Store)](https://store.steampowered.com/app/1812820/Bitburner/)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

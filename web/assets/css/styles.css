@@ -19,7 +19,7 @@
         @apply scroll-mt-24
     }
     .section-content {
-        @apply scroll-mt-16 md:scroll-mt-12 /*my-2 pt-6 */py-4
+        @apply scroll-mt-16 md:scroll-mt-12 py-4
     }
     .article {
         @apply scroll-mt-16 py-4
@@ -56,17 +56,17 @@
     .float-video {
         @apply float-none md:float-right ml-2
     }
-    .link {
+    .external-link {
         @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
     }
-    .link::after {
+    .external-link::after {
         content: url("/svg/box-arrow-up-right.svg");
         display: inline-block;
         width: 1.2rem;
         height: 1.2rem;
         padding-left: 0.5rem;
     }
-    .link.unvisited {
+    .external-link.unvisited {
         @apply visited:text-sky-300
     }
     .anchor-link {
@@ -79,6 +79,7 @@
         height: 2.0rem;
         padding-left: 0.5rem;
     }
+    /* Same as anchor-link but does not have hover svg */
     .anchor-link-small {
         @apply scroll-mt-16 md:scroll-mt-12 no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-sky-300
     }

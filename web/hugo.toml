@@ -1,6 +1,7 @@
 baseURL = 'https://puttehi.eu'
 languageCode = 'en-us'
 title = 'puttehi.eu (Petteri Zitting)'
+disableKinds = ['taxonomy', 'term']
 [markup]
 [markup.goldmark]
 [markup.goldmark.parser]

@@ -1,13 +1,5 @@
 {{ define "main" }}
 {{ partial "projects/project-item.html" . }}
-{{- $pages := where .Site.RegularPages "Section" "in" "projects" -}}
-<div>
-    <p class="pt-2 rainbow-text">Check out these other projects!</p>
-    <div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
-        {{- range $index, $page := $pages -}}
-        <a class="anchor-link pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}" href="/#{{ $page.File.BaseFileName }}">{{
-            $page.Title }}</a>
-        {{- end -}}
-    </div>
-</div>
+{{- $pages := where .Site.RegularPages "Section" "in" .Section -}}
+{{ partial "jumper.html" (dict "pages" $pages "text" "Check out these other projects!") }}
 {{ end }}

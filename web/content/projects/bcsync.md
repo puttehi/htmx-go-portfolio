@@ -11,21 +11,21 @@ draft = true
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/bcsync (GitHub)](https://github.com/puttehi/bcsync)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
 {class="flex-svg-icon"}
 [Replay database](https://ballchasing.com)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
 {class="flex-svg-icon"}
 [Rocket League in Steam](https://store.steampowered.com/app/252950/Rocket_League/)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

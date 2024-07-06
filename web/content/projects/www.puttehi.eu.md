@@ -11,7 +11,7 @@ draft = true
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/puttehi-cloud (GitHub)](https://github.com/puttehi/puttehi-cloud)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

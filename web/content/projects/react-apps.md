@@ -14,7 +14,7 @@ draft = true
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/mobile-exercises (GitHub)](https://github.com/puttehi/mobile-exercises)
-{class="flex-svg-text link"}
+{class="flex-svg-text external-link"}
 {{</ html/div-rendered >}}
 
 ##### Overview

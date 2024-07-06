@@ -2,36 +2,26 @@
 {{- $isRootSection := and (eq true .IsSection) (strings.HasSuffix "/work-experience" .Path) -}}
 {{ if not $isRootSection }}
 <h3><a class="anchor-link" id="{{ .Params.subsection }}" href="#{{ .Params.subsection }}">🏢 {{
-    .Params.company
-    }}</a></h2>
-{{- $paginator := .Paginate (where .Pages "Type" "work-experience") 99 -}}
-<div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
-    {{- range $index, $page := $paginator.Pages -}}
-    <a class="anchor-link-small pr-2 pl-2" href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
-    {{- end -}}
-</div>
+        .Params.company
+        }}</a></h3>
+{{ partial "jumper.html" (dict "pages" .Pages) }}
 <div class="divide-y divide-dashed">
-    {{ range $paginator.Pages }}
+    {{ range .Pages }}
     {{ partial "work-experience/work-experience-item.html" . }}
     {{ end }}
 </div>
 {{ else }}
 <div class="divide-y divide-solid">
     {{ range .Sections }}
-    <div class="divide-y divide-dashed py-2">
+    <div class="py-2">
         <h3 class="mt-2"><a class="anchor-link scroll-mt-16" id="{{ .Params.subsection }}"
-                href="#{{ .Params.subsection }}">🏢 {{ .Params.company }}</a></h2>
-            <div class="divide-x-2 divide-solid py-2">
-                {{- range $index, $page := .Pages -}}
-                <a class="anchor-link-small pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}"
-                    href="#{{ $page.File.BaseFileName }}">{{ $page.Title }}</a>
-                {{- end -}}
-            </div>
-            <div class="divide-y divide-dashed">
-                {{ range .Pages }}
-                {{ partial "work-experience/work-experience-item.html" . }}
-                {{ end }}
-            </div>
+                href="#{{ .Params.subsection }}">🏢 {{ .Params.company }}</a></h3>
+        {{ partial "jumper.html" (dict "pages" .Pages) }}
+        <div class="divide-y divide-dashed">
+            {{ range .Pages }}
+            {{ partial "work-experience/work-experience-item.html" . }}
+            {{ end }}
+        </div>
     </div>
     {{ end }}
 </div>

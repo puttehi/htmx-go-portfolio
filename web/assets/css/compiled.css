@@ -750,23 +750,23 @@ video {
   }
 }
 
-.link {
+.external-link {
   --tw-text-opacity: 1;
   color: rgb(125 211 252 / var(--tw-text-opacity));
   text-decoration-line: none;
 }
 
-.link:visited {
+.external-link:visited {
   color: rgb(216 180 254 );
 }
 
-.link:hover {
+.external-link:hover {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
   text-decoration-line: underline;
 }
 
-.link::after {
+.external-link::after {
   content: url("/svg/box-arrow-up-right.svg");
   display: inline-block;
   width: 1.2rem;
@@ -774,7 +774,7 @@ video {
   padding-left: 0.5rem;
 }
 
-.link.unvisited:visited {
+.external-link.unvisited:visited {
   color: rgb(125 211 252 );
 }
 
@@ -808,6 +808,8 @@ video {
   height: 2.0rem;
   padding-left: 0.5rem;
 }
+
+/* Same as anchor-link but does not have hover svg */
 
 .anchor-link-small {
   scroll-margin-top: 4rem;
@@ -1159,16 +1161,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.after\:h-4::after {
-  content: var(--tw-content);
-  height: 1rem;
-}
-
-.after\:w-4::after {
-  content: var(--tw-content);
-  width: 1rem;
 }
 
 .hover\:bg-gray-100:hover {

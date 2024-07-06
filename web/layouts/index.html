@@ -5,8 +5,6 @@
     </article>
 </section>
 {{ range .Site.Sections }}
-<section id="{{ .Section }}" class="section-content">
-    {{ partial (delimit (slice .Section "section.html") "/") . }}
-</section>
+{{ partial "partials/section-content.html" . }}
 {{ end }}
 {{ end }}
