@@ -66,24 +66,24 @@ ensure-tools:
 	mkdir -p $(TOOLS_ROOT_DIR)
 
 tailwind-cli: ensure-tools
-	@command -v $(TAILWINDCSS) \
-		|| echo "$(TAILWINDCSS) missing. Installing..." \
+	@(command -v $(TAILWINDCSS) && echo "Tailwind found!") \
+		|| (echo "$(TAILWINDCSS) missing. Installing..." \
 		&& curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/$(TAILWINDCSS_VERSION)/tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& chmod +x tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& mv tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) $(TAILWINDCSS) \
 		&& echo "Installed to $(TAILWINDCSS), showing help..." \
-		&& $(TAILWINDCSS) --help
+		&& $(TAILWINDCSS) --help)
 
 tailwind-build:
 	@echo "Building CSS..."
 	$(TAILWINDCSS) -i $(TAILWINDCSS_IN) -o $(TAILWINDCSS_OUT)
 
 hugo-cli:
-	@command -v hugo \
-		|| echo "hugo missing. Installing to system Go path..." \
+	@(command -v hugo && echo "Hugo found!") \
+		|| (echo "hugo missing. Installing to system Go path..." \
 		&& CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@v0.127.0 \
 		&& echo "Installed to $$(which hugo), showing version..." \
-		&& hugo version
+		&& hugo version)
 
 hugo-build:
 	hugo --gc -s $(WEB_ROOT_DIR)

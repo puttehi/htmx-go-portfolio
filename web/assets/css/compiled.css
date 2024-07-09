@@ -658,6 +658,38 @@ video {
   & ul {
     list-style-type: disc;
   }
+  & ul {
+    & li {
+      & a {
+        /* .external-link */
+      }
+      & a {
+        --tw-text-opacity: 1;
+        color: rgb(125 211 252 / var(--tw-text-opacity));
+      }
+      & a {
+        text-decoration-line: none;
+      }
+      & a:visited {
+        color: rgb(216 180 254 );
+      }
+      & a:hover {
+        --tw-text-opacity: 1;
+        color: rgb(14 165 233 / var(--tw-text-opacity));
+      }
+      & a:hover {
+        text-decoration-line: underline;
+      }
+      & a::after {
+        /* .external-link::after */
+        content: url("/svg/box-arrow-up-right.svg");
+        display: inline-block;
+        width: 1.2rem;
+        height: 1.2rem;
+        padding-left: 0.5rem;
+      }
+    }
+  }
   & h1 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
@@ -750,17 +782,17 @@ video {
   }
 }
 
-.external-link {
+.external-link > a {
   --tw-text-opacity: 1;
   color: rgb(125 211 252 / var(--tw-text-opacity));
   text-decoration-line: none;
 }
 
-.external-link:visited {
+.external-link > a:visited {
   color: rgb(216 180 254 );
 }
 
-.external-link:hover {
+.external-link > a:hover {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
   text-decoration-line: underline;
@@ -772,10 +804,6 @@ video {
   width: 1.2rem;
   height: 1.2rem;
   padding-left: 0.5rem;
-}
-
-.external-link.unvisited:visited {
-  color: rgb(125 211 252 );
 }
 
 .anchor-link {
