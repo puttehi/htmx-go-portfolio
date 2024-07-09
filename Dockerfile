@@ -39,7 +39,7 @@ COPY --from=builder /etc/passwd /etc/passwd
 # Get build artifact
 COPY --from=builder /workspace/build/htmx-go-portfolio /htmx-go-portfolio
 # Get web templates
-COPY --from=builder /workspace/web /web
+COPY --from=builder /workspace/web/public /web/public
 
 # Run GIN in release mode
 ENV GIN_MODE=release

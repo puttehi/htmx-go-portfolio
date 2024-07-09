@@ -41,25 +41,8 @@ run:
 build: test
 	go build -o build/htmx-go-portfolio cmd/htmx-go-portfolio/main.go
 
-build-all: hugo-build
+build-all: tailwind-build hugo-build
 	go build -o build/ ./...
-
-hugo-build:
-	hugo --gc -s $(WEB_ROOT_DIR)
-
-# Enables draft pages and changes webroot to local container (for make dev)
-hugo-build-dev:
-	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT)
-
-hugo-build-dev-air-proxy:
-	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT_AIR_PROXY)
-
-# Shows drafts
-hugo-run-dev:
-	hugo server -D -s $(WEB_ROOT_DIR)
-
-hugo-run:
-	hugo server -s $(WEB_ROOT_DIR)
 
 clean:
 	rm -r build || echo "Already gone?"
@@ -69,7 +52,7 @@ clean:
 test:
 	go test -v ./...
 
-setup:
+setup: tailwind-cli hugo-cli
 	go mod download -x
 
 dev: setup
@@ -88,20 +71,44 @@ tailwind-cli: ensure-tools
 		&& curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/$(TAILWINDCSS_VERSION)/tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& chmod +x tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& mv tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) $(TAILWINDCSS) \
-		&& echo "Installed, showing help..." \
+		&& echo "Installed to $(TAILWINDCSS), showing help..." \
 		&& $(TAILWINDCSS) --help
 
 tailwind-build:
 	@echo "Building CSS..."
 	$(TAILWINDCSS) -i $(TAILWINDCSS_IN) -o $(TAILWINDCSS_OUT)
 
+hugo-cli:
+	@command -v hugo \
+		|| echo "hugo missing. Installing to system Go path..." \
+		&& CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@v0.127.0 \
+		&& echo "Installed to $$(which hugo), showing version..." \
+		&& hugo version
+
+hugo-build:
+	hugo --gc -s $(WEB_ROOT_DIR)
+
+# Enables draft pages and changes webroot to local gin port
+hugo-build-dev:
+	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT)
+
+# Enables draft page and changes webroot to local air proxy port (for make dev)
+hugo-build-dev-air-proxy:
+	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT_AIR_PROXY)
+
+# Shows drafts, uses localhost as baseUrl
+hugo-run-dev:
+	hugo server -D -s $(WEB_ROOT_DIR)
+
+# Production build, uses localhost as baseUrl
+hugo-run:
+	hugo server -s $(WEB_ROOT_DIR)
+
 ##########
 # Docker #
 ##########
 
-docker: docker-setup docker-build docker-run
-
-docker-setup: tailwind-cli
+docker: docker-build docker-run
 
 docker-build:
 	docker build --tag $(DOCKER_FULL) $(DOCKER_BUILD_ARGS) .
