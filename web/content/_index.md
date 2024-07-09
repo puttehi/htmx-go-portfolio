@@ -8,7 +8,7 @@ draft = false
 
 ## About me
 
-A smart and detail-oriented DevOps Engineer from Kainuu, Finland who enjoys programming. Experienced in Cloud Infrastructure and modern DevOps solutions. Worked in the service industry before game engineering studies after which moved to the games and tech industry. Have been hacking away at computers and electronics since the early 2000s. Always looking for new things to research or learn! Avid gamer.
+A smart and detail-oriented DevOps Engineer from Finland who enjoys programming. Experienced in Cloud Infrastructure and modern DevOps solutions. Worked in the service industry before game engineering studies after which moved to the games and tech industry. Have been hacking away at computers and electronics since the early 2000s. Always looking for new things to research or learn! Avid gamer.
 
 #### Me elsewhere
 

@@ -52,7 +52,7 @@ clean:
 test:
 	go test -v ./...
 
-setup: tailwind-cli hugo-cli
+setup-go:
 	go mod download -x
 
 dev: setup
@@ -61,6 +61,8 @@ dev: setup
 ############
 # External #
 ############
+
+setup-tools: tailwind-cli hugo-cli
 
 ensure-tools:
 	mkdir -p $(TOOLS_ROOT_DIR)
