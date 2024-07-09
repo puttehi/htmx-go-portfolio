@@ -1,0 +1,28 @@
+<h2><a class="anchor-link" href="/#work-experience">Work experience</a></h2>
+{{- $isRootSection := and (eq true .IsSection) (strings.HasSuffix "/work-experience" .Path) -}}
+{{ if not $isRootSection }}
+<h3><a class="anchor-link" id="{{ .Params.subsection }}" href="#{{ .Params.subsection }}">🏢 {{
+        .Params.company
+        }}</a></h3>
+{{ partial "jumper.html" (dict "pages" .Pages) }}
+<div class="divide-y divide-dashed">
+    {{ range .Pages }}
+    {{ partial "work-experience/work-experience-item.html" . }}
+    {{ end }}
+</div>
+{{ else }}
+<div class="divide-y divide-solid">
+    {{ range .Sections }}
+    <div class="py-2">
+        <h3 class="mt-2"><a class="anchor-link scroll-mt-16" id="{{ .Params.subsection }}"
+                href="#{{ .Params.subsection }}">🏢 {{ .Params.company }}</a></h3>
+        {{ partial "jumper.html" (dict "pages" .Pages) }}
+        <div class="divide-y divide-dashed">
+            {{ range .Pages }}
+            {{ partial "work-experience/work-experience-item.html" . }}
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

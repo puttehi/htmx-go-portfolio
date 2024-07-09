@@ -14,11 +14,22 @@ RUN go env -w GOMODCACHE=/gomod-cache
 
 # Setup workspace
 WORKDIR /workspace
+
+# TODO: Don't copy setup dependencies first to optimize hugo install, get local hugo binary?
+COPY ./Makefile ./Makefile
+COPY ./tools ./tools
+
+# Tools with cache
+RUN --mount=type=cache,target=/gomod-cache \
+    make setup-tools
+
+# TODO: Just copy once before setups
 COPY . .
 
 # Dependencies with cache
 RUN --mount=type=cache,target=/gomod-cache \
-    make setup
+    --mount=type=cache,target=/go-cache \
+    make setup-go
 
 # Build with cache
 RUN --mount=type=cache,target=/gomod-cache \
@@ -39,7 +50,7 @@ COPY --from=builder /etc/passwd /etc/passwd
 # Get build artifact
 COPY --from=builder /workspace/build/htmx-go-portfolio /htmx-go-portfolio
 # Get web templates
-COPY --from=builder /workspace/web /web
+COPY --from=builder /workspace/web/public /web/public
 
 # Run GIN in release mode
 ENV GIN_MODE=release

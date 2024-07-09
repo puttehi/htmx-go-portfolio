@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section id="top" class="section-top">
+    <article class="article">
+        {{ .Content }}
+    </article>
+</section>
+{{ range .Site.Sections }}
+{{ partial "partials/section-content.html" . }}
+{{ end }}
+{{ end }}

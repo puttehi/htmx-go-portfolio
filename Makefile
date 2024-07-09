@@ -8,17 +8,23 @@ DOCKER_FULL:=$(DOCKER_REGISTRY)/$(DOCKER_IMAGE):$(DOCKER_TAG)
 DOCKER_BUILD_ARGS:=
 DOCKER_SAVE_ARGS:=
 EXPOSED_AT:=3000
+# Live reload port
+EXPOSED_AT_AIR_PROXY:=3001
 
 # E.g. -i filepath/of/DOCKER_SAVE_ARGS
 PODMAN_LOAD_ARGS:=
 
 TOOLS_ROOT_DIR:=./tools
 
+WEB_ROOT_DIR:=./web
+
 # TailwindCSS CLI installation
 TAILWINDCSS_PLATFORM:=linux
 TAILWINDCSS_ARCH:=x64
 TAILWINDCSS_VERSION:=v3.3.5
 TAILWINDCSS:=$(TOOLS_ROOT_DIR)/tailwindcss
+TAILWINDCSS_IN:=$(WEB_ROOT_DIR)/assets/css/styles.css
+TAILWINDCSS_OUT:=$(WEB_ROOT_DIR)/assets/css/compiled.css
 
 .PHONY:$(MAKECMDGOALS)
 
@@ -35,16 +41,18 @@ run:
 build: test
 	go build -o build/htmx-go-portfolio cmd/htmx-go-portfolio/main.go
 
-build-all: test
+build-all: tailwind-build hugo-build
 	go build -o build/ ./...
 
 clean:
-	rm -r build/*
+	rm -r build || echo "Already gone?"
+	rm -r tmp || echo "Already gone?"
+	rm -r $(WEB_ROOT_DIR)/public || echo "Already gone?"
 
 test:
 	go test -v ./...
 
-setup:
+setup-go:
 	go mod download -x
 
 dev: setup
@@ -54,29 +62,55 @@ dev: setup
 # External #
 ############
 
+setup-tools: tailwind-cli hugo-cli
+
 ensure-tools:
 	mkdir -p $(TOOLS_ROOT_DIR)
 
 tailwind-cli: ensure-tools
-	@command -v $(TAILWINDCSS) \
-		|| echo "$(TAILWINDCSS) missing. Installing..." \
+	@(command -v $(TAILWINDCSS) && echo "Tailwind found!") \
+		|| (echo "$(TAILWINDCSS) missing. Installing..." \
 		&& curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/download/$(TAILWINDCSS_VERSION)/tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& chmod +x tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) \
 		&& mv tailwindcss-$(TAILWINDCSS_PLATFORM)-$(TAILWINDCSS_ARCH) $(TAILWINDCSS) \
-		&& echo "Installed, showing help..." \
-		&& $(TAILWINDCSS) --help
+		&& echo "Installed to $(TAILWINDCSS), showing help..." \
+		&& $(TAILWINDCSS) --help)
 
 tailwind-build:
 	@echo "Building CSS..."
-	$(TAILWINDCSS) -o ./web/css/styles.css
+	$(TAILWINDCSS) -i $(TAILWINDCSS_IN) -o $(TAILWINDCSS_OUT)
+
+hugo-cli:
+	@(command -v hugo && echo "Hugo found!") \
+		|| (echo "hugo missing. Installing to system Go path..." \
+		&& CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@v0.127.0 \
+		&& echo "Installed to $$(which hugo), showing version..." \
+		&& hugo version)
+
+hugo-build:
+	hugo --gc -s $(WEB_ROOT_DIR)
+
+# Enables draft pages and changes webroot to local gin port
+hugo-build-dev:
+	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT)
+
+# Enables draft page and changes webroot to local air proxy port (for make dev)
+hugo-build-dev-air-proxy:
+	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT_AIR_PROXY)
+
+# Shows drafts, uses localhost as baseUrl
+hugo-run-dev:
+	hugo server -D -s $(WEB_ROOT_DIR)
+
+# Production build, uses localhost as baseUrl
+hugo-run:
+	hugo server -s $(WEB_ROOT_DIR)
 
 ##########
 # Docker #
 ##########
 
-docker: docker-setup docker-build docker-run
-
-docker-setup: tailwind-cli
+docker: docker-build docker-run
 
 docker-build:
 	docker build --tag $(DOCKER_FULL) $(DOCKER_BUILD_ARGS) .

@@ -1,0 +1,12 @@
+<div>
+    {{ if .text }}
+    <p class="pt-2 rainbow-text">{{ .text }}</p>
+    {{ end }}
+    <div class="divide-x-2 divide-solid border-y border-dashed my-2 py-2">
+        {{- range $index, $page := .pages -}}
+        <a class="anchor-link-small pr-2 {{- if (gt $index 0) }} pl-2 {{- end -}}"
+            href="/#{{ $page.File.BaseFileName }}">{{
+            $page.Title }}</a>
+        {{- end -}}
+    </div>
+</div>

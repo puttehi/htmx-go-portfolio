@@ -1,0 +1,8 @@
+<h2><a class="anchor-link" href="/#projects">Projects</a></h2>
+{{- $pages := where .Site.RegularPages "Section" "in" .Section -}}
+{{ partial "jumper.html" (dict "pages" $pages "text" "Check out these past projects!") }}
+<div class="divide-y divide-dashed">
+    {{ range $pages }}
+    {{ partial "projects/project-item.html" . }}
+    {{ end }}
+</div>

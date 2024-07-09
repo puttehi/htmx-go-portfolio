@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{ partial "work-experience/work-experience-item.html" . }}
+{{- $pages := where .Site.RegularPages "Section" "in" .Section -}}
+{{ partial "jumper.html" (dict "pages" $pages "text" "Check out my other experience!") }}
+{{ end }}

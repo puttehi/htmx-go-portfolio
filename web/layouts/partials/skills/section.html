@@ -1,0 +1,7 @@
+<h2><a class="anchor-link" href="/#skills">Skills</a></h2>
+{{- $paginator := .Paginate (where .Pages "Type" "skills") 99 -}}
+<div class="divide-y divide-dashed">
+    {{ range $paginator.Pages }}
+    {{ partial "skills/skills-item.html" . }}
+    {{ end }}
+</div>

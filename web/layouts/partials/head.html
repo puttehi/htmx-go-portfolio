@@ -1,0 +1,4 @@
+<title>{{ .Site.Title }}</title>
+{{ with resources.Get "/css/compiled.css" }}
+<link rel="stylesheet" href="{{ .Permalink }}" type="text/css" media="all" />
+{{ end }}
