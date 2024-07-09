@@ -1,7 +1,7 @@
 +++
 title = 'Home'
 date = 2024-06-19T00:10:53+03:00
-draft = true
+draft = false
 +++
 
 # Petteri Zitting

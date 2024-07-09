@@ -24,27 +24,11 @@ func main() {
 		panic(err)
 	}
 
-	/* pageData := PageData{
-		NextNavbarAction: "show",
-	}
-	*/
+	absoluteWebRoot := filepath.Join(path, webRoot)
+	r.Use(static.ServeRoot("/", absoluteWebRoot))
 
-	r.Use(static.ServeRoot("/", filepath.Join(path, webRoot)))
+	fmt.Printf("\n\n*****\nServing web root (/) from %s\n", absoluteWebRoot)
+	fmt.Printf("\nStarting on http://localhost:%d\n*****\n\n", port)
 
-	/* // TODO
-	r.GET("/navbar/:navbarAction", func(c *gin.Context) {
-		wanted := c.Param("navbarAction")
-		var next string
-		if wanted == "show" {
-			next = "hide"
-		} else {
-			next = "show"
-		}
-		sessionPageData := pageData
-		sessionPageData.NextNavbarAction = next
-		c.HTML(http.StatusOK, "navbar.htmx", sessionPageData)
-	})
-	*/
-	fmt.Printf("\n*****\nStarting on http://localhost:%d\n*****\n\n", port)
 	r.Run(fmt.Sprintf(":%d", port))
 }

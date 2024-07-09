@@ -16,13 +16,15 @@ PODMAN_LOAD_ARGS:=
 
 TOOLS_ROOT_DIR:=./tools
 
+WEB_ROOT_DIR:=./web
+
 # TailwindCSS CLI installation
 TAILWINDCSS_PLATFORM:=linux
 TAILWINDCSS_ARCH:=x64
 TAILWINDCSS_VERSION:=v3.3.5
 TAILWINDCSS:=$(TOOLS_ROOT_DIR)/tailwindcss
-TAILWINDCSS_IN:=./web/assets/css/styles.css
-TAILWINDCSS_OUT:=./web/assets/css/compiled.css
+TAILWINDCSS_IN:=$(WEB_ROOT_DIR)/assets/css/styles.css
+TAILWINDCSS_OUT:=$(WEB_ROOT_DIR)/assets/css/compiled.css
 
 .PHONY:$(MAKECMDGOALS)
 
@@ -39,29 +41,30 @@ run:
 build: test
 	go build -o build/htmx-go-portfolio cmd/htmx-go-portfolio/main.go
 
-build-all: test
+build-all: hugo-build
 	go build -o build/ ./...
 
 hugo-build:
-	hugo --gc -s ./web
+	hugo --gc -s $(WEB_ROOT_DIR)
 
 # Enables draft pages and changes webroot to local container (for make dev)
 hugo-build-dev:
-	hugo --gc -s ./web -D -b http://localhost:$(EXPOSED_AT)
+	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT)
 
 hugo-build-dev-air-proxy:
-	hugo --gc -s ./web -D -b http://localhost:$(EXPOSED_AT_AIR_PROXY)
+	hugo --gc -s $(WEB_ROOT_DIR) -D -b http://localhost:$(EXPOSED_AT_AIR_PROXY)
 
 # Shows drafts
 hugo-run-dev:
-	hugo server -D -s ./web
+	hugo server -D -s $(WEB_ROOT_DIR)
 
 hugo-run:
-	hugo server -s ./web
+	hugo server -s $(WEB_ROOT_DIR)
 
 clean:
-	rm -r build/*
-	rm -r web/public
+	rm -r build || echo "Already gone?"
+	rm -r tmp || echo "Already gone?"
+	rm -r $(WEB_ROOT_DIR)/public || echo "Already gone?"
 
 test:
 	go test -v ./...
