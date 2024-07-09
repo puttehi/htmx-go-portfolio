@@ -2,7 +2,7 @@
 title = '📦 Simplechat'
 date = 2024-06-22T21:30:24+03:00
 weight = 5
-draft = true
+draft = false
 +++
 
 #### Windows

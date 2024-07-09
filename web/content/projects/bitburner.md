@@ -2,7 +2,7 @@
 title = '📦 Bitburner scripts'
 date = 2024-06-22T21:31:10+03:00
 weight = 10
-draft = true
+draft = false
 +++
 
 #### Windows/Linux (Steam)

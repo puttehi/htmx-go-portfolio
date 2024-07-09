@@ -2,7 +2,7 @@
 title = '📦 Rocket League Replay uploader'
 date = 2024-06-22T21:30:19+03:00
 weight = 4 # TODO: Set position!
-draft = true
+draft = false
 +++
 
 #### Linux, Windows

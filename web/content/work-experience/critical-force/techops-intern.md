@@ -1,7 +1,7 @@
 +++
 title = '🧑‍💻 TechOps Intern'
 date = 2024-06-24T00:06:15+03:00
-draft = true
+draft = false
 weight = 3
 +++
 

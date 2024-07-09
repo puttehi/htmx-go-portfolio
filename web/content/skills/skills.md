@@ -1,7 +1,7 @@
 +++
 title = 'Skills'
 date = 2024-06-24T19:48:21+03:00
-draft = true
+draft = false
 weight = 1
 +++
 

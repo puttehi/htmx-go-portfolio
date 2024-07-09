@@ -1,7 +1,7 @@
 +++
 title = '🧑‍💻 DevOps Engineer'
 date = 2024-06-24T00:05:58+03:00
-draft = true
+draft = false
 weight = 1
 +++
 

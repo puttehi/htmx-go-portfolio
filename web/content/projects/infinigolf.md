@@ -2,7 +2,7 @@
 title = '📦 Infinigolf (Unity)'
 date = 2024-06-17T23:47:21+03:00
 weight = 1 # Top
-draft = true
+draft = false
 +++
 #### Android
 
