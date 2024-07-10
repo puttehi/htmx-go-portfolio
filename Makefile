@@ -55,7 +55,7 @@ test:
 setup-go:
 	go mod download -x
 
-dev: setup
+dev: setup-go setup-tools
 	air
 
 ############
