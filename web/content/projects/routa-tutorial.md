@@ -14,14 +14,14 @@ draft = false
 ![Alt text](svg/file-earmark-text.svg)
 {class="flex-svg-icon"}
 [Written tutorial: Part 1 (CodiMD @KAMK DCLabra)](https://gitlab.dclabra.fi/wiki/s/HJrXEPW58)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
 {class="flex-svg-icon"}
 [Written tutorial: Part 2 (CodiMD @KAMK DCLabra)](https://gitlab.dclabra.fi/wiki/s/rkHV83ccI)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 ##### Overview

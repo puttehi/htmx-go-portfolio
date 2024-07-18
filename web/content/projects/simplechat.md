@@ -14,7 +14,7 @@ draft = false
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/qt-chat (GitHub)](https://github.com/puttehi/qt-chat)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 ##### Overview

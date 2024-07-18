@@ -11,7 +11,7 @@ draft = false
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/discord-spaghetti-bot (GitHub)](https://github.com/puttehi/discord-spaghetti-bot)
-{class="flex-svg-text external-external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 ##### Overview

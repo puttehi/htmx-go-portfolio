@@ -29,20 +29,18 @@
         & ul {
             @apply list-disc list-inside
         }
-        & ul {
-            & li {
-                & a {
-                    /* .external-link */
-                    @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
-                }
-                & a::after {
-                    /* .external-link::after */
-                    content: url("/svg/box-arrow-up-right.svg");
-                    display: inline-block;
-                    width: 1.2rem;
-                    height: 1.2rem;
-                    padding-left: 0.5rem;
-                }
+        & p {
+            & a {
+                /* .external-link */
+                @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
+            }
+            & a::after {
+                /* .external-link::after */
+                content: url("/svg/box-arrow-up-right.svg");
+                display: inline-block;
+                width: 1.2rem;
+                height: 1.2rem;
+                padding-left: 0.5rem;
             }
         }
         & h1 {

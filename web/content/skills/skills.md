@@ -7,10 +7,16 @@ weight = 1
 
 #### Cloud infrastructure and cloud solutions
 
+{{< html/div class="inline-flex" >}}
 {{< html/tag-rendered _name="a" href="https://www.credly.com/badges/a47673f6-a68d-4362-852d-4d625c11726f" >}}
-![AWS Certified Cloud Practicioner badge. Links to credly.com.](png/aws-clf-co2.png)
+![AWS Certified Cloud Practicioner badge. Links to credly.com.](png/aws-clf-c02.png)
 { class="w-28 h-28 ml-2 my-2" }
 {{</ html/tag-rendered >}}
+{{< html/tag-rendered _name="a" href="https://www.credly.com/badges/6e7677f6-4ae9-4ee9-abdd-7388f975455a" >}}
+![AWS Certified Solutions Architect - Associate badge. Links to credly.com.](png/aws-saa-c03.png)
+{ class="w-28 h-28 ml-2 my-2" }
+{{</ html/tag-rendered >}}
+{{</ html/div>}}
 
 - Google Cloud Platform (GCP)
 - Amazon Web Services (AWS)
