@@ -13,7 +13,7 @@ draft = false
 ![Alt text](svg/itchio-textless-white.svg)
 {class="flex-svg-icon"}
 [Infinigolf (itch.io)](https://puttehi.itch.io/infinigolf)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 ##### Overview

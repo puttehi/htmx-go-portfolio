@@ -11,21 +11,21 @@ draft = false
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [puttehi/slacktube (GitHub)](https://github.com/puttehi/slacktube)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/file-earmark-text.svg)
 {class="flex-svg-icon"}
 [Documentation (readthedocs.io)](https://slacktube.readthedocs.io/en/latest/)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 {{< html/div-rendered class="flex-svg-wrapper" >}}
 ![Alt text](svg/code-slash.svg)
 {class="flex-svg-icon"}
 [fedejaure/cookiecutter-modern-pypackage improvements (GitHub)](https://github.com/fedejaure/cookiecutter-modern-pypackage/issues/409)
-{class="flex-svg-text external-link"}
+{class="flex-svg-text"}
 {{</ html/div-rendered >}}
 
 ##### Overview
