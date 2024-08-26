@@ -16,10 +16,15 @@ weight = 1
 ![AWS Certified Solutions Architect - Associate badge. Links to credly.com.](png/aws-saa-c03.png)
 { class="w-28 h-28 ml-2 my-2" }
 {{</ html/tag-rendered >}}
+{{< html/tag-rendered _name="a" href="https://learn.microsoft.com/api/credentials/share/en-us/PetteriZitting-1820/1BCA408970C08D04?sharingId=785AB630BD33757" >}}
+![Microsoft Certified: Azure Fundamentals badge. Links to microsoft.com.](png/ms-az-900.png)
+{ class="w-28 h-28 ml-2 my-2" }
+{{</ html/tag-rendered >}}
 {{</ html/div>}}
 
 - Google Cloud Platform (GCP)
 - Amazon Web Services (AWS)
+- Microsoft Azure
 
 #### Build and process automation (CI/CD)
 
@@ -29,7 +34,7 @@ weight = 1
 
 #### Full-stack development with a focus on the backend
 
-- Typescript/Javascript servers and simple frontends
+- Typescript/Javascript backends and simple frontends
 - Golang backends and tooling
 - Python backends and tooling
 
