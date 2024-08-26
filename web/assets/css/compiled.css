@@ -780,30 +780,6 @@ video {
   }
 }
 
-.external-link > a {
-  --tw-text-opacity: 1;
-  color: rgb(125 211 252 / var(--tw-text-opacity));
-  text-decoration-line: none;
-}
-
-.external-link > a:visited {
-  color: rgb(216 180 254 );
-}
-
-.external-link > a:hover {
-  --tw-text-opacity: 1;
-  color: rgb(14 165 233 / var(--tw-text-opacity));
-  text-decoration-line: underline;
-}
-
-.external-link::after {
-  content: url("/svg/box-arrow-up-right.svg");
-  display: inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
-  padding-left: 0.5rem;
-}
-
 .anchor-link {
   scroll-margin-top: 4rem;
   --tw-text-opacity: 1;
