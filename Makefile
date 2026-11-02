@@ -1,11 +1,9 @@
 ifeq ($(OS),Windows_NT)
 SHELL:=bash.exe
 EXE_EXT:=.exe
-TAILWINDCSS_PLATFORM:=windows
 else
 SHELL:=/bin/bash
 EXE_EXT:=
-TAILWINDCSS_PLATFORM:=$(if $(filter Darwin,$(shell uname -s)),macos,linux)
 endif
 
 # Prevent pushing publicly by accident
@@ -28,25 +26,37 @@ WEB_ROOT_DIR:=./web
 
 # TailwindCSS CLI installation
 HOST_ARCH:=$(shell go env GOHOSTARCH)
+TAILWINDCSS_PLATFORM:=$(if $(filter Darwin,$(shell uname -s)),macos,linux)
+ifeq ($(OS),Windows_NT)
+TAILWINDCSS_PLATFORM:=windows
+endif
 TAILWINDCSS_ARCH:=$(if $(filter amd64,$(HOST_ARCH)),x64,$(if $(filter arm,$(HOST_ARCH)),armv7,$(HOST_ARCH)))
 TAILWINDCSS_VERSION:=v3.3.5
 TAILWINDCSS:=$(TOOLS_ROOT_DIR)/tailwindcss$(EXE_EXT)
 TAILWINDCSS_IN:=$(WEB_ROOT_DIR)/assets/css/styles.css
 TAILWINDCSS_OUT:=$(WEB_ROOT_DIR)/assets/css/compiled.css
 
+# Hugo CLI installation
 HUGO:=hugo
 ifeq ($(OS),Windows_NT)
 HUGO:=$(TOOLS_ROOT_DIR)/hugo.exe
 endif
 HUGO_VERSION:=0.127.0
 
-.PHONY:$(MAKECMDGOALS)
+# Air CLI installation
+AIR_VERSION:=v1.61.7
+AIR:=$(TOOLS_ROOT_DIR)/air$(EXE_EXT)
+
+.PHONY:$(MAKECMDGOALS) setup run-built air-cli
 
 #########
 # Local #
 #########
 
 all: test build-all
+	@echo "Build complete. Run 'make run-built' to start the compiled build."
+
+run-built:
 	./build/htmx-go-portfolio$(EXE_EXT)
 
 run:
@@ -69,11 +79,13 @@ test:
 setup-go:
 	go mod download -x
 
-dev: setup-go setup-tools
+setup: setup-go setup-tools air-cli
+
+dev: setup
 ifeq ($(OS),Windows_NT)
-	air --build.cmd "go build -o ./tmp/main.exe ./cmd/htmx-go-portfolio" --build.bin '$(subst /,\,$(CURDIR)/tmp/main.exe)' --build.exclude_dir 'web\public,build'
+	$(AIR) --build.cmd "go build -o ./tmp/main.exe ./cmd/htmx-go-portfolio" --build.bin '$(subst /,\,$(CURDIR)/tmp/main.exe)' --build.exclude_dir 'web\public,build'
 else
-	air
+	$(AIR)
 endif
 
 ############
@@ -84,6 +96,12 @@ setup-tools: tailwind-cli hugo-cli
 
 ensure-tools:
 	mkdir -p $(TOOLS_ROOT_DIR)
+
+air-cli: ensure-tools
+	@(command -v $(AIR) && echo "Air found!") \
+		|| (echo "$(AIR) missing. Installing..." \
+		&& GOBIN="$(abspath $(TOOLS_ROOT_DIR))" go install github.com/air-verse/air@$(AIR_VERSION) \
+		&& $(AIR) -v)
 
 tailwind-cli: ensure-tools
 	@(command -v $(TAILWINDCSS) && echo "Tailwind found!") \
