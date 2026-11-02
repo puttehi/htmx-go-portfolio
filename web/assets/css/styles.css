@@ -29,19 +29,16 @@
         & ul {
             @apply list-disc list-inside
         }
-        & p {
-            & a {
-                /* .external-link */
-                @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
-            }
-            & a::after {
-                /* .external-link::after */
-                content: url("/svg/box-arrow-up-right.svg");
-                display: inline-block;
-                width: 1.2rem;
-                height: 1.2rem;
-                padding-left: 0.5rem;
-            }
+        & a:not(.anchor-link, .anchor-link-small) {
+            @apply no-underline hover:underline text-sky-300 hover:text-sky-500 visited:text-purple-300
+        }
+        & a:is([href^="https://"], [href^="http://"]):not(:has(> img))::after,
+        & a:is([href^="https://"], [href^="http://"]) > p:last-child::after {
+            content: url("/svg/box-arrow-up-right.svg");
+            display: inline-block;
+            width: 1.2rem;
+            height: 1.2rem;
+            padding-left: 0.5rem;
         }
         & h1 {
             @apply text-gray-100 text-5xl my-6
